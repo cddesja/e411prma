@@ -1,0 +1,404 @@
+\documentclass[dvipsnames]{beamer}
+\usepackage{color} % for colors
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat?s bookmarks
+    pdftoolbar=true,        % show Acrobat?s toolbar?
+    pdfmenubar=true,        % show Acrobat?s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={My title},    % title
+    pdfauthor={Author},     % author
+    pdfsubject={Subject},   % subject of the document
+    pdfcreator={Creator},   % creator of the document
+    pdfproducer={Producer}, % producer of the document
+    pdfkeywords={keyword1} {key2} {key3}, % list of keywords
+    pdfnewwindow=true,      % links in new PDF window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=red,          % color of internal links (change box color with linkbordercolor)
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=blue         % color of external links
+}
+% \usepackage{beamerthemesplit} // Activate for custom appearance
+
+\usecolortheme{beaver}
+\title{E-411-PRMA}
+\subtitle{Lecture 1}
+\author{Christopher David Desjardins}
+\date{17 August 2015}
+
+\begin{document}
+
+<<echo = FALSE>>=
+opts_chunk$set(fig.height=6, fig.align = 'center', echo = FALSE, message = FALSE, warning = FALSE)
+@
+
+<<setup, include=FALSE, cache=FALSE>>=
+library(knitr)
+@
+
+
+
+\frame{\titlepage}
+
+%\section[Outline]{}
+%\frame{\tableofcontents}
+
+\begin{frame}
+\centerline{\includegraphics[scale=.35]{images/binet2.png}}
+\end{frame}
+
+\begin{frame}
+\centerline{\includegraphics[scale=.15]{images/physiognomy.jpg}}
+\end{frame}
+
+\begin{frame}
+\centerline{\includegraphics[scale=.2]{images/sat.png}}
+\end{frame}
+
+\frame
+{
+  \frametitle{E-411-PRMA}
+
+\begin{itemize}
+  	\item \textbf{Topics}
+		\begin{itemize}
+			\item Statistics, Classical Test Theory, Reliability, Validity, Item Response Theory, Generalizability Theory, Equating, and assessments/issues specific to various fields
+			\end{itemize}
+			\item \textbf{Assessments}
+			\begin{itemize}
+			  \item R computer assignments (30\%)
+			  \item Item writing activity (5\%)
+			  \item Midterm exam (25\%)
+			  \item \textcolor{red}{Final exam (50\%)}
+		\end{itemize}  
+  \end{itemize}
+}
+
+\begin{frame}
+    \begin{center}
+    	\includegraphics[width=\textwidth]{images/rstudio.png}
+    \end{center}
+\begin{flushright}
+\href{https://www.r-project.org}{R: \underline{https://www.r-project.org}}
+
+\href{https://www.rstudio.com}{RStudio: \underline{https://www.rstudio.com}}
+\end{flushright}
+\end{frame}
+
+
+\frame{
+\frametitle{Why should I learn R?}
+\begin{itemize}
+	\item<1->It's free and open-source 
+	\item<2->Statistics and psychometrics analyses
+ 	\item<3->Helps you learn statistics better
+	\item<4-> Learn reproducible research
+	\item<5-> Extremely marketable skill
+ 	\item<6->High quality graphics
+	\item<7-> Everyone is doing it
+ 	\item<8->Steep learning curve
+	\begin{itemize}
+ 		\item<9->\color{RoyalBlue}{Will provide nearly all the code}
+	\end{itemize}
+ 	\item<10->\color{red}{No SPSS in this class}
+\end{itemize}
+}
+
+\frame{
+\frametitle{Resources for R}
+\begin{itemize}
+	\item Icelandic resources
+		\begin{itemize}
+			\item[] \url{http://kennslubanki.hi.is/search/efni/r}
+			\item[] \url{http://kennslubanki.hi.is/tolfraedi/myndbond/rrstudio-inngangur}
+			\item[] \url{http://kennslubanki.hi.is/tolfraedi/myndbond/rrstudio-fyrstu-skrefin}
+		\end{itemize}
+	\item Please watch the last two videos before next class
+	\item Please install R and RStudio before next class
+	\item Next class will be an R workshop
+\end{itemize}
+}
+
+\frame{
+\frametitle{Concepts}
+\begin{itemize}
+	\item[]<1-> What is \textbf{measurement}?
+	\begin{itemize}
+		\item[]<4-> Assignment of numerical values based on a set of rules
+	\end{itemize}
+	\vspace{.5cm}
+	\item[]<2-> What is a \textbf{test}?
+		\begin{itemize}
+		\item[]<5-> An instrument used to measure
+		\end{itemize} 
+	\vspace{.5cm}
+	\item[]<3-> What is a \textbf{scale}?
+			\begin{itemize}
+		\item[]<6->A set of numbers used to categorize or quantify variables ("things")
+			\begin{itemize}
+		\item[]<7-> \textbf{Nominal}
+		\item[]<7-> \textbf{Ordinal}
+		\item[]<7-> \textbf{Ratio}
+		\item[]<7-> \textbf{Interval}
+				\end{itemize} 
+				\end{itemize} 
+\end{itemize}
+}
+
+\frame{
+\frametitle{What kind of scales are these?}
+\begin{itemize}
+	\item Temperature
+	\item Height
+	\item Intelligence Quotient
+	\item Color
+	\item Ethnic group
+	\item Likert-type items
+	\item Job satisfaction
+\end{itemize}
+}
+
+\begin{frame}
+<<>>=
+# Load the library
+set.seed(101)
+library("ggplot2")
+
+# Set up the parameters
+sample_size <- 500
+mean <- 100
+standard_deviation <- 15
+
+# Generate random numbers
+x <- rnorm(sample_size, mean, standard_deviation)  
+
+# Plot the data
+qplot(x, fill = I("white"), color = I("#c96552")) + theme_bw() + xlab("Intelligence Quotient") + ylab("Frequency")
+@
+\end{frame}
+
+\begin{frame}[fragile]
+<<echo = TRUE, eval = FALSE>>=
+# Load the library
+set.seed(101)
+library("ggplot2")
+
+# Set up the parameters
+sample_size <- 500
+mean <- 100
+standard_deviation <- 15
+
+# Generate random numbers
+x <- rnorm(sample_size, mean, standard_deviation)  
+
+# Plot the data
+qplot(x, fill = I("white"), color = I("#c96552")) +
+  theme_bw() + xlab("Intelligence Quotient") +
+  ylab("Frequency")
+@
+\end{frame}
+
+\begin{frame}
+<<>>=
+set.seed(107)
+x1 <- rnbinom(500, mu = 4, size = 1)
+qplot(x1, fill = I("white"), color = I("#c96552")) + theme_bw() + xlab("Number of drinks last month") + ylab("Frequency")
+@
+\end{frame}
+
+\begin{frame}
+<<>>=
+set.seed(105)
+x1 <- rnorm(250, mean = 162, sd = 4)
+x2 <- rnorm(250, mean = 180, sd = 4)
+qplot(c(x1,x2), fill = I("white"), color = I("#c96552")) + theme_bw() + xlab("Height") + ylab("Frequency")
+@
+\end{frame}
+
+\begin{frame}
+\frametitle{Central Tendency Measures}
+\begin{center}
+\textbf{Mean}
+$$
+\bar{X} = \frac{\sum X_i}{n}
+$$
+
+\textbf{Median}
+$$
+\operatorname{P}(X\leq m) \geq \frac{1}{2}\text{ and }\operatorname{P}(X\geq m) \geq \frac{1}{2}
+$$
+
+\textbf{Mode}
+
+The most frequently occurring value
+
+\vspace{.5cm}
+\textcolor{red}{Which of these statistics is most robust to outliers?}
+\end{center}
+\end{frame}
+
+\begin{frame}
+<<>>=
+set.seed(107)
+x1 <- rnbinom(500, mu = 4, size = 1)
+qplot(x1, fill = I("white"), color = I("#c96552")) + theme_bw() + xlab("Number of drinks last month") + ylab("Frequency") + geom_vline(xintercept = mean(x1), color = "blue", size = 1) +  geom_vline(xintercept = median(1), color = "black", size = 1)
+@
+\end{frame}
+
+\begin{frame}
+\frametitle{Variability}
+<<fig.height = 5>>=
+library("gridExtra")
+set.seed(105)
+x1 <- rnorm(500, mean = 100, sd = 15)
+x2 <- rnorm(500, mean = 100, sd = 5)
+g0 <- qplot(x1, fill = I("white"), color = I("blue")) + theme_bw() + xlab("IQ") + ylab("Frequency") + coord_cartesian(xlim = c(50, 150))
+g1 <- qplot(x2, fill = I("white"), color = I("red")) + theme_bw() + xlab("IQ") + ylab("Frequency") + coord_cartesian(xlim = c(50, 150))
+grid.arrange(g0,g1)
+@
+\end{frame}
+
+\begin{frame}
+\frametitle{Measures of variability}
+
+Range
+
+\vspace{.5cm}
+
+Interquartile range ($Q_1$, $Q_2$, $Q_3$)
+
+\vspace{.5cm}
+
+Standard Deviation and Variance
+$$
+s = \sqrt{\frac{\sum{X_i - \bar{X}}}{n - 1}}
+$$
+$$
+s^2 = \frac{\sum{X_i - \bar{X}}}{n - 1}
+$$
+\end{frame}
+
+\begin{frame}
+\frametitle{Distributions, skewness, kurtosis}
+  \begin{itemize}
+    \item What is a probability distribution
+  \begin{itemize}
+    \item Assigns a probability, likeliness of occurence, of a score of all possible scores
+    \item May be parametric or non-parametric
+  \end{itemize}
+  \item What skew might you expect these outcomes to look like?
+    \begin{itemize}
+    \item Reaction time in a psychological experiment
+    \item Number of children in a family
+    \item Scores on an easy test
+    \item Height in Iceland
+    \end{itemize}
+  \item Platykurtic, mesokurtic, and leptokurtic
+  \item Plot your data, rely less on statistics!
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Shapes of distributions}
+\begin{center}
+\includegraphics[scale = .5]{images/distributions.png}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Normal Distribution}
+<<fig.height = 5>>=
+x <- seq(-4, 4, length=100)
+hx <- dnorm(x)
+plot(x, hx, type="l", xlab="Ability", ylab="Density", main="Normal Distribution")
+@
+\end{frame}
+
+\begin{frame}
+\frametitle{IQ - 1 Standard Deviation}
+<<>>=
+# -----------------------------
+mean=100; sd=15
+lb=85; ub=115
+
+x <- seq(-4,4,length=100)*sd + mean
+hx <- dnorm(x,mean,sd)
+
+plot(x, hx, type="n", xlab="IQ Values", ylab="",
+     main="Normal Distribution", axes=FALSE)
+
+i <- x >= lb & x <= ub
+lines(x, hx)
+polygon(c(lb,x[i],ub), c(0,hx[i],0), col="red") 
+
+area <- pnorm(ub, mean, sd) - pnorm(lb, mean, sd)
+result <- paste("P(",lb,"< IQ <",ub,") =",
+                signif(area, digits=3))
+mtext(result,3)
+axis(1, at=seq(40, 160, 20), pos=0)
+@
+\end{frame}
+
+\begin{frame}
+\frametitle{IQ - 2 Standard Deviation}
+<<>>=
+# -----------------------------
+mean=100; sd=15
+lb=70; ub=130
+
+x <- seq(-4,4,length=100)*sd + mean
+hx <- dnorm(x,mean,sd)
+
+plot(x, hx, type="n", xlab="IQ Values", ylab="",
+     main="Normal Distribution", axes=FALSE)
+
+i <- x >= lb & x <= ub
+lines(x, hx)
+polygon(c(lb,x[i],ub), c(0,hx[i],0), col="blue") 
+
+area <- pnorm(ub, mean, sd) - pnorm(lb, mean, sd)
+result <- paste("P(",lb,"< IQ <",ub,") =",
+                signif(area, digits=3))
+mtext(result,3)
+axis(1, at=seq(40, 160, 20), pos=0)
+@
+\end{frame}
+
+\begin{frame}
+\frametitle{IQ - 3 Standard Deviation}
+<<>>=
+# -----------------------------
+mean=100; sd=15
+lb=55; ub=145
+
+x <- seq(-4,4,length=100)*sd + mean
+hx <- dnorm(x,mean,sd)
+
+plot(x, hx, type="n", xlab="IQ Values", ylab="",
+     main="Normal Distribution", axes=FALSE)
+
+i <- x >= lb & x <= ub
+lines(x, hx)
+polygon(c(lb,x[i],ub), c(0,hx[i],0), col="green") 
+
+area <- pnorm(ub, mean, sd) - pnorm(lb, mean, sd)
+result <- paste("P(",lb,"< IQ <",ub,") =",
+                signif(area, digits=3))
+mtext(result,3)
+axis(1, at=seq(40, 160, 20), pos=0)
+@
+\end{frame}
+
+\begin{frame}
+\frametitle{Characteristics of the Normal distribution}
+\begin{center}
+\includegraphics[scale = .5]{images/normal.png}
+\end{center}
+\end{frame}
+
+\end{document}

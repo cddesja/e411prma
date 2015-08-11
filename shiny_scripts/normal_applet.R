@@ -1,3 +1,5 @@
+library("shiny")
+library("ggplot2")
 shinyApp(
   ui = fluidPage(
     titlePanel("Normal Distribution"),

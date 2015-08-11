@@ -342,6 +342,19 @@ $$
 \end{frame}
 
 \begin{frame}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+
+{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-8-1} 
+
+}
+
+
+
+\end{knitrout}
+\end{frame}
+
+\begin{frame}
 \frametitle{Distributions, skewness, kurtosis}
   \begin{itemize}
     \item What is a probability distribution
@@ -373,7 +386,7 @@ $$
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
 
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-8-1} 
+{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-9-1} 
 
 }
 
@@ -387,7 +400,7 @@ $$
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
 
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-9-1} 
+{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-10-1} 
 
 }
 
@@ -401,7 +414,7 @@ $$
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
 
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-10-1} 
+{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-11-1} 
 
 }
 
@@ -415,7 +428,7 @@ $$
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
 
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-11-1} 
+{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-12-1} 
 
 }
 
@@ -429,6 +442,102 @@ $$
 \begin{center}
 \includegraphics[scale = .5]{images/normal.png}
 \end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Z-distribution}
+
+\begin{itemize}
+  \item<1-> The standard normal distribution is known as the z-distribution
+  \item<2-> \textcolor{red}{What is the mean and the standard deviation of this distribution?}
+  \item<3-> All normal distributions can be converted to the z-distribution
+  \item<4-> A raw score can be converted to a z-score.
+  \item[]<5-> \begin{center}$z = \frac{x - \mu}{\sigma}$\end{center}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{SAT}
+  
+  The SAT is an aptitude test that high schools take. It is one of the criteria that is used in a college's decision to admit a student. It is composed of a math and a verbal section. Each has a mean of 500 and a standard devation of 110 and is normally distributed. 
+  \begin{itemize}
+  \item<1-> What are the scores on the test that corresponds to 3, 2, 1, 0, -1, -2, -3 standard deviations?
+  \item<2-> Assume 1000 people took the SAT,
+  \begin{itemize}
+    \item<3-> If Jon got a 700 on the math section, how many people scored above him?
+    \item<4-> If 300 people scored below Anna on the verbal section, what was Anna's score?
+    \item<5-> How many people got scores between 390 and 610?
+    \item<6-> If Sigga got a 350 on the math section, how many people scored below her?
+    \item<7-> If Einar was in the 98\% percentile in math, what was Einar's score?
+  \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Other standard scores}
+\begin{itemize}
+  \item<1-> \textcolor{red}{T scores} have a mean of 50 and a standard deviation of 10.
+    \begin{itemize}
+      \item<2-> What would T scores of 30 and 70 be as z-scores?
+    \end{itemize}
+    \item<3-> \textcolor{red}{stanine}, range from 1 to 9, are centered at 5 with a standard deviation of 2. Each stanine, corresponds to 1/2 a standard deviation and the 5th stanine is at the mean.
+      \begin{itemize}
+        \item<4-> If you were in the 3rd stanine, what would your z-score be?
+        \item<5-> How many people would be below you?
+        \item<6-> What percent of the people are between the 3rd and the 6th stanines?
+      \end{itemize}
+      \item<7-> Various linear and non-linear transformations are done to create scores and scores may be normalized.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is a correlation?}
+\begin{itemize}
+  \item Is it an association?
+  \item Does it imply causation?
+  \item Is a correlation necessary for causation?
+  \item Does it need linearity?
+  \item Is it affected by variability?
+  \item Is it affected by outliers?
+  \item Is it related to the simple linear regression?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is the correlation?}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+
+{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-13-1} 
+
+}
+
+
+
+\end{knitrout}
+\end{frame}
+
+\begin{frame}
+\frametitle{Correlation}
+$$
+\frac{\sum(X - \bar{X})(Y - \bar{Y})}{\sqrt{\sum(X - \bar{X})^2\sum((Y - \bar{Y})^2}}
+$$
+\end{frame}
+
+\begin{frame}
+\frametitle{Calculating correlations}
+\begin{tabular}{lll}
+\hline
+&X	& Y \\
+\hline
+&5 &	6 \\
+&3	&0 \\
+&1	&0 \\
+\hline
+Mean &	3	&2 \\
+\hline
+\end{tabular}
 \end{frame}
 
 \end{document}

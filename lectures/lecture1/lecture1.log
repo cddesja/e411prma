@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  9 AUG 2015 20:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  11 AUG 2015 18:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1083,52 +1083,48 @@ Package pdftex.def Info: figure/unnamed-chunk-7-1.pdf used on input line 322.
  <./figure/unnamed-chunk-7-1.pdf>]
 [33
 
-] [34
-
-] <images/distributions.png, id=936, 632.1216pt x 397.9668pt>
-File: images/distributions.png Graphic file (type png)
-
-<use images/distributions.png>
-Package pdftex.def Info: images/distributions.png used on input line 369.
-(pdftex.def)             Requested size: 316.06003pt x 198.98291pt.
-
-Overfull \hbox (8.77016pt too wide) in paragraph at lines 369--369
- [] 
- []
-
-[35
-
- <./images/distributions.png>]
-<figure/unnamed-chunk-8-1.pdf, id=963, 505.89pt x 361.35pt>
+] <figure/unnamed-chunk-8-1.pdf, id=911, 505.89pt x 433.62pt>
 File: figure/unnamed-chunk-8-1.pdf Graphic file (type pdf)
 
 <use figure/unnamed-chunk-8-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-8-1.pdf used on input line 383.
-(pdftex.def)             Requested size: 307.28987pt x 219.49687pt.
- [36
+Package pdftex.def Info: figure/unnamed-chunk-8-1.pdf used on input line 355.
+(pdftex.def)             Requested size: 307.28987pt x 263.39624pt.
+ [34
 
  <./figure/unnamed-chunk-8-1.pdf>]
-<figure/unnamed-chunk-9-1.pdf, id=995, 505.89pt x 433.62pt>
+[35
+
+] <images/distributions.png, id=968, 632.1216pt x 397.9668pt>
+File: images/distributions.png Graphic file (type png)
+
+<use images/distributions.png>
+Package pdftex.def Info: images/distributions.png used on input line 382.
+(pdftex.def)             Requested size: 316.06003pt x 198.98291pt.
+
+Overfull \hbox (8.77016pt too wide) in paragraph at lines 382--382
+ [] 
+ []
+
+[36
+
+ <./images/distributions.png>]
+<figure/unnamed-chunk-9-1.pdf, id=995, 505.89pt x 361.35pt>
 File: figure/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 
 <use figure/unnamed-chunk-9-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-9-1.pdf used on input line 397.
-(pdftex.def)             Requested size: 307.28987pt x 263.39624pt.
-
-Overfull \vbox (25.65903pt too high) detected at line 397
- []
-
-[37
+Package pdftex.def Info: figure/unnamed-chunk-9-1.pdf used on input line 396.
+(pdftex.def)             Requested size: 307.28987pt x 219.49687pt.
+ [37
 
  <./figure/unnamed-chunk-9-1.pdf>]
 <figure/unnamed-chunk-10-1.pdf, id=1029, 505.89pt x 433.62pt>
 File: figure/unnamed-chunk-10-1.pdf Graphic file (type pdf)
 
 <use figure/unnamed-chunk-10-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-10-1.pdf used on input line 411.
+Package pdftex.def Info: figure/unnamed-chunk-10-1.pdf used on input line 410.
 (pdftex.def)             Requested size: 307.28987pt x 263.39624pt.
 
-Overfull \vbox (25.65903pt too high) detected at line 411
+Overfull \vbox (25.65903pt too high) detected at line 410
  []
 
 [38
@@ -1138,24 +1134,95 @@ Overfull \vbox (25.65903pt too high) detected at line 411
 File: figure/unnamed-chunk-11-1.pdf Graphic file (type pdf)
 
 <use figure/unnamed-chunk-11-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-11-1.pdf used on input line 425.
+Package pdftex.def Info: figure/unnamed-chunk-11-1.pdf used on input line 424.
 (pdftex.def)             Requested size: 307.28987pt x 263.39624pt.
 
-Overfull \vbox (25.65903pt too high) detected at line 425
+Overfull \vbox (25.65903pt too high) detected at line 424
  []
 
 [39
 
  <./figure/unnamed-chunk-11-1.pdf>]
-<images/normal.png, id=1092, 578.91281pt x 420.06938pt>
+<figure/unnamed-chunk-12-1.pdf, id=1093, 505.89pt x 433.62pt>
+File: figure/unnamed-chunk-12-1.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-12-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-12-1.pdf used on input line 438.
+(pdftex.def)             Requested size: 307.28987pt x 263.39624pt.
+
+Overfull \vbox (25.65903pt too high) detected at line 438
+ []
+
+[40
+
+ <./figure/unnamed-chunk-12-1.pdf>]
+<images/normal.png, id=1126, 578.91281pt x 420.06938pt>
 File: images/normal.png Graphic file (type png)
 
 <use images/normal.png>
-Package pdftex.def Info: images/normal.png used on input line 432.
+Package pdftex.def Info: images/normal.png used on input line 445.
 (pdftex.def)             Requested size: 289.45569pt x 210.03418pt.
- [40
+ [41
 
- <./images/normal.png>]
+ <./images/normal.png>] [42
+
+] [43
+
+] [44
+
+] [45
+
+] [46
+
+]
+[47
+
+] [48
+
+] [49
+
+] [50
+
+] [51
+
+] [52
+
+] [53
+
+] [54
+
+] [55
+
+] [56
+
+] [57
+
+] [58
+
+] [59
+
+] [60
+
+] [61
+
+]
+<figure/unnamed-chunk-13-1.pdf, id=1664, 505.89pt x 433.62pt>
+File: figure/unnamed-chunk-13-1.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-13-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-13-1.pdf used on input line 519.
+(pdftex.def)             Requested size: 307.28987pt x 263.39624pt.
+
+Overfull \vbox (25.65903pt too high) detected at line 519
+ []
+
+[62
+
+ <./figure/unnamed-chunk-13-1.pdf>] [63
+
+] [64
+
+]
 \tf@nav=\write6
 \openout6 = `lecture1.nav'.
 
@@ -1165,11 +1232,11 @@ Package pdftex.def Info: images/normal.png used on input line 432.
 \tf@snm=\write8
 \openout8 = `lecture1.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 434.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 434.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 543.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 543.
  (./lecture1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 434.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 434.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 543.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 543.
 Package rerunfilecheck Info: File `lecture1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1177,33 +1244,34 @@ Package rerunfilecheck Info: File `lecture1.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 434.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 543.
  ) 
 Here is how much of TeX's memory you used:
- 16968 strings out of 493089
- 325819 string characters out of 6134842
- 394104 words of memory out of 5000000
- 19947 multiletter control sequences out of 15000+600000
+ 17042 strings out of 493089
+ 326717 string characters out of 6134842
+ 395611 words of memory out of 5000000
+ 19971 multiletter control sequences out of 15000+600000
  15282 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,14n,56p,465b,639s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb>
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr
-/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pf
-b>
-Output written on lecture1.pdf (40 pages, 1771821 bytes).
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr
+/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr
+/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/loc
+al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr
+/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
+Output written on lecture1.pdf (64 pages, 1847133 bytes).
 PDF statistics:
- 1179 PDF objects out of 1200 (max. 8388607)
- 1079 compressed objects within 11 object streams
- 81 named destinations out of 1000 (max. 500000)
- 118 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1819 PDF objects out of 2073 (max. 8388607)
+ 1683 compressed objects within 17 object streams
+ 129 named destinations out of 1000 (max. 500000)
+ 128 words of extra memory for PDF output out of 10000 (max. 10000000)
 

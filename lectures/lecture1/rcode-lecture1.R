@@ -73,3 +73,14 @@ abline(v = c(55, 70, 85, 100, 115, 130, 145))
 
 axis(1, at=seq(40, 160, 20), pos=0)
 
+# -----------------------------
+x <- seq(-4, 4, length=100)
+hx <- dnorm(x)
+plot(x, hx, type="l", xlab="Ability", ylab="Density", main="Normal Distribution")
+quants <- quantile(x)
+abline(v = quants[2:4], col = c("red", "blue", "yellow"))
+
+# ----------------------------
+X <- seq(-4, 4, by = .01)
+Y <- X^2
+plot(Y~X, type = "l")

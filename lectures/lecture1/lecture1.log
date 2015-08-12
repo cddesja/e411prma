@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  11 AUG 2015 18:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  12 AUG 2015 09:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1117,56 +1117,56 @@ Package pdftex.def Info: figure/unnamed-chunk-9-1.pdf used on input line 396.
  [37
 
  <./figure/unnamed-chunk-9-1.pdf>]
-<figure/unnamed-chunk-10-1.pdf, id=1029, 505.89pt x 433.62pt>
+[38
+
+] <figure/unnamed-chunk-10-1.pdf, id=1054, 505.89pt x 433.62pt>
 File: figure/unnamed-chunk-10-1.pdf Graphic file (type pdf)
 
 <use figure/unnamed-chunk-10-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-10-1.pdf used on input line 410.
+Package pdftex.def Info: figure/unnamed-chunk-10-1.pdf used on input line 414.
 (pdftex.def)             Requested size: 307.28987pt x 263.39624pt.
 
-Overfull \vbox (25.65903pt too high) detected at line 410
- []
-
-[38
-
- <./figure/unnamed-chunk-10-1.pdf>]
-<figure/unnamed-chunk-11-1.pdf, id=1061, 505.89pt x 433.62pt>
-File: figure/unnamed-chunk-11-1.pdf Graphic file (type pdf)
-
-<use figure/unnamed-chunk-11-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-11-1.pdf used on input line 424.
-(pdftex.def)             Requested size: 307.28987pt x 263.39624pt.
-
-Overfull \vbox (25.65903pt too high) detected at line 424
+Overfull \vbox (25.65903pt too high) detected at line 414
  []
 
 [39
 
- <./figure/unnamed-chunk-11-1.pdf>]
-<figure/unnamed-chunk-12-1.pdf, id=1093, 505.89pt x 433.62pt>
-File: figure/unnamed-chunk-12-1.pdf Graphic file (type pdf)
+ <./figure/unnamed-chunk-10-1.pdf>]
+<figure/unnamed-chunk-11-1.pdf, id=1086, 505.89pt x 433.62pt>
+File: figure/unnamed-chunk-11-1.pdf Graphic file (type pdf)
 
-<use figure/unnamed-chunk-12-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-12-1.pdf used on input line 438.
+<use figure/unnamed-chunk-11-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-11-1.pdf used on input line 428.
 (pdftex.def)             Requested size: 307.28987pt x 263.39624pt.
 
-Overfull \vbox (25.65903pt too high) detected at line 438
+Overfull \vbox (25.65903pt too high) detected at line 428
  []
 
 [40
 
+ <./figure/unnamed-chunk-11-1.pdf>]
+<figure/unnamed-chunk-12-1.pdf, id=1119, 505.89pt x 433.62pt>
+File: figure/unnamed-chunk-12-1.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-12-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-12-1.pdf used on input line 442.
+(pdftex.def)             Requested size: 307.28987pt x 263.39624pt.
+
+Overfull \vbox (25.65903pt too high) detected at line 442
+ []
+
+[41
+
  <./figure/unnamed-chunk-12-1.pdf>]
-<images/normal.png, id=1126, 578.91281pt x 420.06938pt>
+<images/normal.png, id=1151, 578.91281pt x 420.06938pt>
 File: images/normal.png Graphic file (type png)
 
 <use images/normal.png>
-Package pdftex.def Info: images/normal.png used on input line 445.
+Package pdftex.def Info: images/normal.png used on input line 449.
 (pdftex.def)             Requested size: 289.45569pt x 210.03418pt.
- [41
+ [42
 
- <./images/normal.png>] [42
-
-] [43
+ <./images/normal.png>] [43
 
 ] [44
 
@@ -1174,10 +1174,10 @@ Package pdftex.def Info: images/normal.png used on input line 445.
 
 ] [46
 
-]
-[47
+] [47
 
-] [48
+]
+[48
 
 ] [49
 
@@ -1205,22 +1205,24 @@ Package pdftex.def Info: images/normal.png used on input line 445.
 
 ] [61
 
+] [62
+
 ]
-<figure/unnamed-chunk-13-1.pdf, id=1664, 505.89pt x 433.62pt>
+<figure/unnamed-chunk-13-1.pdf, id=1689, 505.89pt x 433.62pt>
 File: figure/unnamed-chunk-13-1.pdf Graphic file (type pdf)
 
 <use figure/unnamed-chunk-13-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-13-1.pdf used on input line 519.
+Package pdftex.def Info: figure/unnamed-chunk-13-1.pdf used on input line 523.
 (pdftex.def)             Requested size: 307.28987pt x 263.39624pt.
 
-Overfull \vbox (25.65903pt too high) detected at line 519
+Overfull \vbox (25.65903pt too high) detected at line 523
  []
 
-[62
+[63
 
- <./figure/unnamed-chunk-13-1.pdf>] [63
+ <./figure/unnamed-chunk-13-1.pdf>] [64
 
-] [64
+] [65
 
 ]
 \tf@nav=\write6
@@ -1232,11 +1234,11 @@ Overfull \vbox (25.65903pt too high) detected at line 519
 \tf@snm=\write8
 \openout8 = `lecture1.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 543.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 543.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 573.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 573.
  (./lecture1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 543.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 543.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 573.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 573.
 Package rerunfilecheck Info: File `lecture1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1244,13 +1246,13 @@ Package rerunfilecheck Info: File `lecture1.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 543.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 573.
  ) 
 Here is how much of TeX's memory you used:
- 17042 strings out of 493089
- 326717 string characters out of 6134842
- 395611 words of memory out of 5000000
- 19971 multiletter control sequences out of 15000+600000
+ 17046 strings out of 493089
+ 326752 string characters out of 6134842
+ 395659 words of memory out of 5000000
+ 19973 multiletter control sequences out of 15000+600000
  15282 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,14n,56p,465b,639s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1268,10 +1270,10 @@ local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/lo
 cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/loc
 al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr
 /local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on lecture1.pdf (64 pages, 1847133 bytes).
+Output written on lecture1.pdf (65 pages, 1849882 bytes).
 PDF statistics:
- 1819 PDF objects out of 2073 (max. 8388607)
- 1683 compressed objects within 17 object streams
- 129 named destinations out of 1000 (max. 500000)
+ 1845 PDF objects out of 2073 (max. 8388607)
+ 1707 compressed objects within 18 object streams
+ 131 named destinations out of 1000 (max. 500000)
  128 words of extra memory for PDF output out of 10000 (max. 10000000)
 

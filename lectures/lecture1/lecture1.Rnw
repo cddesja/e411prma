@@ -330,6 +330,10 @@ plot(x, hx, type="l", xlab="Ability", ylab="Density", main="Normal Distribution"
 \end{frame}
 
 \begin{frame}
+\frametitle{R Normal distribution applet}
+\end{frame}
+
+\begin{frame}
 \frametitle{IQ - 1 Standard Deviation}
 <<>>=
 # -----------------------------
@@ -472,7 +476,7 @@ axis(1, at=seq(40, 160, 20), pos=0)
 \end{frame}
 
 \begin{frame}
-\frametitle{What is the correlation?}
+\frametitle{What is the Pearson correlation coefficient?}
 <<>>=
 X <- seq(-4, 4, by = .01)
 Y <- X^2
@@ -481,14 +485,15 @@ plot(Y~X, type = "l")
 \end{frame}
 
 \begin{frame}
-\frametitle{Correlation}
+\frametitle{Pearson correlation coefficient}
 $$
 \frac{\sum(X - \bar{X})(Y - \bar{Y})}{\sqrt{\sum(X - \bar{X})^2\sum((Y - \bar{Y})^2}}
 $$
 \end{frame}
 
 \begin{frame}
-\frametitle{Calculating correlations}
+\frametitle{Calculating Pearson correlation coefficient}
+\begin{center}
 \begin{tabular}{lll}
 \hline
 &X	& Y \\
@@ -500,6 +505,27 @@ $$
 Mean &	3	&2 \\
 \hline
 \end{tabular}
+\end{center}
+<<echo = TRUE, eval = FALSE>>=
+x <- c(5, 3, 1)
+
+y <- c(6, 0, 0)
+
+cor(x, y)
+@
 \end{frame}
+
+%\begin{frame}
+%\frametitle{Make R do it}
+%<<>>=
+%x <- c(5, 3, 1)
+%y <- c(6, 0, 0)
+%cor(x, y)
+%@
+%\end{frame}
+%' 
+%' \begin{frame}
+%' \frametitle{R correlation applet}
+%' \end{frame}
 
 \end{document}

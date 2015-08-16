@@ -1,22 +1,11 @@
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlcom{# Load the library}
-\hlkwd{set.seed}\hlstd{(}\hlnum{101}\hlstd{)}
-\hlkwd{library}\hlstd{(}\hlstr{"ggplot2"}\hlstd{)}
+\frametitle{Model Summary}
+\begin{tabular}{lllll}
+\hline
+Parameter & Estimate & SE & t-value & p-value \\
+$\beta_0$ & 57.57  & 0.11 & 506.01 & < .001 \\
+$\beta_1$ & 0.08 & 0.001 & 91.98 & < .001 \\
+\hline
+\end{tabular}
 
-\hlcom{# Set up the parameters}
-\hlstd{sample_size} \hlkwb{<-} \hlnum{500}
-\hlstd{mean} \hlkwb{<-} \hlnum{100}
-\hlstd{standard_deviation} \hlkwb{<-} \hlnum{15}
-
-\hlcom{# Generate random numbers}
-\hlstd{x} \hlkwb{<-} \hlkwd{rnorm}\hlstd{(sample_size, mean, standard_deviation)}
-
-\hlcom{# Plot the data}
-\hlkwd{qplot}\hlstd{(x,} \hlkwc{fill} \hlstd{=} \hlkwd{I}\hlstd{(}\hlstr{"white"}\hlstd{),} \hlkwc{color} \hlstd{=} \hlkwd{I}\hlstd{(}\hlstr{"#c96552"}\hlstd{))} \hlopt{+}
-  \hlkwd{theme_bw}\hlstd{()} \hlopt{+} \hlkwd{xlab}\hlstd{(}\hlstr{"Intelligence Quotient"}\hlstd{)} \hlopt{+}
-  \hlkwd{ylab}\hlstd{(}\hlstr{"Frequency"}\hlstd{)}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
+\vspace{.5cm}
+\textcolor{red}{How does this relate to correlation?}

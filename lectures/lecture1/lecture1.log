@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  12 AUG 2015 09:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  16 AUG 2015 19:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -721,6 +721,67 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/alltt.sty
 Package: alltt 1997/06/16 v2.0g defines alltt environment
 )
+(/usr/local/texlive/2015/texmf-dist/tex/latex/svg/svg.sty
+Package: svg 2012/09/05 v1.0 SVG inclusion and extraction
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks43
+\XKV@tempa@toks=\toks44
+)
+\XKV@depth=\count153
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen192
+\captionmargin@=\dimen193
+\captionwidth=\dimen194
+\caption@tempdima=\dimen195
+\caption@indent=\dimen196
+\caption@parindent=\dimen197
+\caption@hangindent=\dimen198
+)
+\c@ContinuedFloat=\count154
+Package caption Info: beamer document class.
+Package caption Info: hyperref package is loaded.
+Package caption Info: Hyperref support is turned off
+(caption)             because hyperref has stopped early.
+)
+\c@KVtest=\count155
+\sf@farskip=\skip58
+\sf@captopadj=\dimen199
+\sf@capskip=\skip59
+\sf@nearskip=\skip60
+\c@subfigure=\count156
+\c@subfigure@save=\count157
+\c@depth=\count158
+\c@subtable=\count159
+\c@subtable@save=\count160
+\sf@top=\skip61
+\sf@bottom=\skip62
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/import/import.sty
+Package: import 2009/03/23  v 5.1
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/transparent.sty
+Package: transparent 2007/01/08 v1.0 Transparency via pdfTeX's color stack (HO)
+
+)
+\SVG@out@width=\skip63
+\SVG@out@height=\skip64
+\c@svgfigure=\count161
+)
 
 Package hyperref Warning: Option `bookmarks' has already been used,
 (hyperref)                setting the option has no effect on input line 74.
@@ -794,17 +855,17 @@ LaTeX Font Info:    ... okay on input line 83.
 
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count153
-\scratchdimen=\dimen192
+\scratchcounter=\count162
+\scratchdimen=\dimen200
 \scratchbox=\box53
-\nofMPsegments=\count154
-\nofMParguments=\count155
-\everyMPshowfont=\toks43
-\MPscratchCnt=\count156
-\MPscratchDim=\dimen193
-\MPnumerator=\count157
-\makeMPintoPDFobject=\count158
-\everyMPtoPDFconversion=\toks44
+\nofMPsegments=\count163
+\nofMParguments=\count164
+\everyMPshowfont=\toks45
+\MPscratchCnt=\count165
+\MPscratchDim=\dimen201
+\MPnumerator=\count166
+\makeMPintoPDFobject=\count167
+\everyMPtoPDFconversion=\toks46
 ) (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -830,7 +891,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count159
+\c@section@level=\count168
 )
 LaTeX Info: Redefining \ref on input line 83.
 LaTeX Info: Redefining \pageref on input line 83.
@@ -918,7 +979,21 @@ r-theorem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
 LaTeX Info: Redefining \includegraphics on input line 83.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: Incompatible package detected (regarding \caption).
+(caption)             \caption = macro:->\ifx \@captype \@undefined \@latex@err
+or {\noexpand \caption outside figure or table}\@ehd \expandafter \@gobble \els
+e \refstepcounter \@captype \expandafter \@firstofone \fi {\@dblarg {\@caption 
+\@captype }}.
 
+
+Package caption Warning: \caption will not be redefined since it's already
+(caption)                redefined by a document class or package which is
+(caption)                unknown to the caption package.
+See the caption package documentation for explanation.
+
+Package caption Info: End \AtBeginDocument code.
 (./lecture1.nav)
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
@@ -1123,10 +1198,10 @@ Package pdftex.def Info: figure/unnamed-chunk-9-1.pdf used on input line 396.
 File: figure/unnamed-chunk-10-1.pdf Graphic file (type pdf)
 
 <use figure/unnamed-chunk-10-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-10-1.pdf used on input line 414.
+Package pdftex.def Info: figure/unnamed-chunk-10-1.pdf used on input line 419.
 (pdftex.def)             Requested size: 307.28987pt x 263.39624pt.
 
-Overfull \vbox (25.65903pt too high) detected at line 414
+Overfull \vbox (25.65903pt too high) detected at line 419
  []
 
 [39
@@ -1136,10 +1211,10 @@ Overfull \vbox (25.65903pt too high) detected at line 414
 File: figure/unnamed-chunk-11-1.pdf Graphic file (type pdf)
 
 <use figure/unnamed-chunk-11-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-11-1.pdf used on input line 428.
+Package pdftex.def Info: figure/unnamed-chunk-11-1.pdf used on input line 433.
 (pdftex.def)             Requested size: 307.28987pt x 263.39624pt.
 
-Overfull \vbox (25.65903pt too high) detected at line 428
+Overfull \vbox (25.65903pt too high) detected at line 433
  []
 
 [40
@@ -1149,10 +1224,10 @@ Overfull \vbox (25.65903pt too high) detected at line 428
 File: figure/unnamed-chunk-12-1.pdf Graphic file (type pdf)
 
 <use figure/unnamed-chunk-12-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-12-1.pdf used on input line 442.
+Package pdftex.def Info: figure/unnamed-chunk-12-1.pdf used on input line 447.
 (pdftex.def)             Requested size: 307.28987pt x 263.39624pt.
 
-Overfull \vbox (25.65903pt too high) detected at line 442
+Overfull \vbox (25.65903pt too high) detected at line 447
  []
 
 [41
@@ -1162,7 +1237,7 @@ Overfull \vbox (25.65903pt too high) detected at line 442
 File: images/normal.png Graphic file (type png)
 
 <use images/normal.png>
-Package pdftex.def Info: images/normal.png used on input line 449.
+Package pdftex.def Info: images/normal.png used on input line 454.
 (pdftex.def)             Requested size: 289.45569pt x 210.03418pt.
  [42
 
@@ -1212,10 +1287,10 @@ Package pdftex.def Info: images/normal.png used on input line 449.
 File: figure/unnamed-chunk-13-1.pdf Graphic file (type pdf)
 
 <use figure/unnamed-chunk-13-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-13-1.pdf used on input line 523.
+Package pdftex.def Info: figure/unnamed-chunk-13-1.pdf used on input line 528.
 (pdftex.def)             Requested size: 307.28987pt x 263.39624pt.
 
-Overfull \vbox (25.65903pt too high) detected at line 523
+Overfull \vbox (25.65903pt too high) detected at line 528
  []
 
 [63
@@ -1223,6 +1298,88 @@ Overfull \vbox (25.65903pt too high) detected at line 523
  <./figure/unnamed-chunk-13-1.pdf>] [64
 
 ] [65
+
+] [66
+
+] [67
+
+] [68
+
+] [69
+
+] [70
+
+]
+[71
+
+] <figure/unnamed-chunk-15-1.pdf, id=1925, 505.89pt x 361.35pt>
+File: figure/unnamed-chunk-15-1.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-15-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-15-1.pdf used on input line 608.
+(pdftex.def)             Requested size: 307.28987pt x 219.49687pt.
+
+Overfull \vbox (5.75966pt too high) detected at line 608
+ []
+
+[72
+
+ <./figure/unnamed-chunk-15-1.pdf>]
+\openout4 = `lecture1.vrb'.
+
+ (./lecture1.vrb) [73
+
+] [74
+
+] [75
+
+] [76
+
+]
+[77
+
+] <figure/unnamed-chunk-16-1.pdf, id=2086, 505.89pt x 433.62pt>
+File: figure/unnamed-chunk-16-1.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-16-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-16-1.pdf used on input line 647.
+(pdftex.def)             Requested size: 307.28987pt x 263.39624pt.
+
+Overfull \vbox (25.65903pt too high) detected at line 647
+ []
+
+[78
+
+ <./figure/unnamed-chunk-16-1.pdf>] [79
+
+] [80
+
+] [81
+
+] [82
+
+] [83
+
+] [84
+
+] [85
+
+]
+[86
+
+] [87
+
+] [88
+
+] [89
+
+] [90
+
+] [91
+
+] [92
+
+] [93
 
 ]
 \tf@nav=\write6
@@ -1234,11 +1391,11 @@ Overfull \vbox (25.65903pt too high) detected at line 523
 \tf@snm=\write8
 \openout8 = `lecture1.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 573.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 573.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 744.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 744.
  (./lecture1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 573.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 573.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 744.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 744.
 Package rerunfilecheck Info: File `lecture1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1246,34 +1403,37 @@ Package rerunfilecheck Info: File `lecture1.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 573.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 744.
  ) 
 Here is how much of TeX's memory you used:
- 17046 strings out of 493089
- 326752 string characters out of 6134842
- 395659 words of memory out of 5000000
- 19973 multiletter control sequences out of 15000+600000
- 15282 words of font info for 57 fonts, out of 8000000 for 9000
+ 18648 strings out of 493089
+ 354214 string characters out of 6134842
+ 424643 words of memory out of 5000000
+ 21479 multiletter control sequences out of 15000+600000
+ 17096 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,14n,56p,465b,639s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 76i,14n,106p,465b,637s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr
-/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr
-/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/lo
-cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/loc
-al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr
-/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on lecture1.pdf (65 pages, 1849882 bytes).
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loc
+al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local
+/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/
+texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/loca
+l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
+Output written on lecture1.pdf (93 pages, 4877553 bytes).
 PDF statistics:
- 1845 PDF objects out of 2073 (max. 8388607)
- 1707 compressed objects within 18 object streams
- 131 named destinations out of 1000 (max. 500000)
- 128 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2596 PDF objects out of 2984 (max. 8388607)
+ 2416 compressed objects within 25 object streams
+ 187 named destinations out of 1000 (max. 500000)
+ 138 words of extra memory for PDF output out of 10000 (max. 10000000)
 

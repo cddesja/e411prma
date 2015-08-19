@@ -1,0 +1,348 @@
+---
+title: "Introduction to R"
+author: "Christopher David Desjardins"
+date: "August 20, 2015"
+output: html_document
+---
+# Section 1. Customizing Rstudio
+
+Much of the Rstudio IDE is customizable. By default Rstudio has soft-wrap R sources files disabled. This might be something you wish to enable to prevent very long lines. I would recommend just breaking your lines after 80 characters or so anyways. 
+
+You can find these settings under Tools -> Global Options.
+
+You can also change the pane layout if you want.
+
+By default, the following layout is used.
+Upper Left - Code editor
+Bottom Left - R console 
+Upper Right - Environment, i.e. what is currently in R and History, i.e. what commands you have run.
+Bottom Right - Viewer for help pages, files in current directory, graphs, and packages. 
+
+You'll always want write code in the Code editor and not directly in the R console unless it's something you know you'll never want to write again!
+
+# Section 2. R Basics
+
+First, here are some books.
+- Using R for Introductory Statistics (free): http://cran.r-project.org/doc/contrib/Verzani-SimpleR.pdf
+- Linear models with R: http://www.amazon.com/Linear-Models-Chapman-Statistical-Science/dp/1584884258
+- Extending the linear model with R: http://www.amazon.com/Extending-Linear-Model-Generalized-Nonparametric/dp/158488424X
+
+However, there's lot of R resources. So unless you want a printed R book you don't need to buy one. What I do is often just Google my problem and I either hitstackoverflow or the R-help mailing list. There are also lots of wonderful blogs. 
+
+For example, http://www.statmethods.net/
+
+For Icelandic R videos: https://www.youtube.com/channel/UClpgj8pTFS3XT5SHYWpAbrQ. These are R videos and statistics tutorials for the stats department at HÍ.
+
+R is both a programming language and a statistics environment
+
+To install a library in R use the install.package() function and R will figure out all it's dependencies automatically.
+
+```{r, eval = FALSE}
+install.packages("irtoys")  # IRT models
+install.packages("lme4")  # HLM aka mixed effects modeling, can do Rasch modeling
+install.packages("lavaan")  # CFA, SEM simple output/model syntax to MPlus
+install.packages("ggplot2")  # Graphing package 
+install.packages("psych")  # CTT, FA, http://personality-project.org/r/
+install.packages("plyr")  # Data manipulation
+install.packages("equate")  # Equating
+```
+
+To load a library.
+```{r}
+library("foreign")  # This is library needs to be loaded to read SPSS data
+```
+
+To list the functions in a particular package
+```{r}
+lsf.str("package:foreign")
+```
+
+More detailed handouts, called vignettes, are available for packages.
+
+```{r, eval = FALSE}
+vignette()
+vignette("release")  ## ggplot2 vignette
+```
+
+To find out information about a function:
+```{r, eval = FALSE}
+?read.spss  # In spite of the cavaet, I have had no issues with this function
+```
+
+To search for a keyword
+```{r}
+??item
+```
+
+What data sets are available?
+```{r, eval = FALSE}
+data()
+```
+
+Which data sets belong to irtoys?
+```{r}
+data(package = c("irtoys"))
+```
+
+To check what directory we're working from and set it
+```{r, eval = FALSE}
+getwd()
+setwd("~/Dropbox/cdd/GitHub/e411prma/data/")
+```
+
+To see what's in that directory
+```{r}
+dir()
+```
+
+Import the Harry Potter pretest 
+
+```{r}
+# "<-" this is the assignment operator
+pretest <- read.csv(file = "~/Dropbox/cdd/GitHub/e411prma/data/hp_pretest.csv", na.strings = "")
+# I recomend always naming objects in lowercase.
+# If you want to combine words use lower.case
+```
+
+Note that pretest appears in the Environment window (UR). You can also see that by running ls() in R
+```{r}
+ls()
+```
+You can also note the History tab in the UR that includes all the commands you've run.
+
+Investigate the first few cases and then the last few case.
+
+```{r}
+head(pretest)
+tail(pretest)
+```
+
+To view all the data type
+```{r}
+pretest
+```
+
+If you want to see a specific observation, say #20, and you want to see responses from questions 2 through 3.
+```{r}
+pretest[20,2:3]
+```
+
+Or if you want to see questions 1, 3, and 6 for observations 19 through 21.
+```{r}
+pretest[19:21, c(1,3,6)]
+```
+
+To get information about the data set and the variable types
+```{r}
+str(pretest)
+```
+Notice, that these are being treated as factors.
+
+To get the name of all the variables
+```{r}
+names(pretest)
+```
+
+To save the data to a text file named _pretest.txt_ in your working directory
+```{r, eval = FALSE}
+write.table(pretest, file = "pretest.txt")
+```
+
+and to read the file back in
+```{r, eval = FALSE}
+read.table(file="pretest.txt")
+```
+
+We should always read data into an object
+```{r, eval = FALSE}
+pretest.tmp <- read.table(file="pretest.txt")
+```
+
+Similar functions exist to read data directly from CSV files, SAS files, etc. Check out the _foreign_ package. 
+
+To get summary of the pretest data
+```{r}
+summary(pretest)
+```
+
+To access a variable in the data.frame use the "$" symbol. 
+```{r}
+pretest$Q1  # fyi, R is case sensitive
+```
+
+To create a table of this.
+```{r}
+table(pretest$Q1)
+```
+
+Let's a unique ID variable to this data set
+```{r}
+pretest$id <- 1:nrow(pretest)  # nrow(), number of rows in the data.frame
+head(pretest)
+```
+
+What if we found out subject 1 should had a 'b' Q3 not 'c'
+```{r}
+pretest[pretest$id == 1,]
+pretest[pretest$id == 1, "Q3"]
+pretest[pretest$id == 1, "Q3"] <- "b"
+pretest[pretest$id == 1, "Q3"]
+```
+  
+We can use the psych library to get even more information 
+```{r}
+library("psych")
+?describe
+describe(pretest)  # asterisks indicate factors
+```
+But is the appropriate for this kind of data?
+
+Conditional tables, these are especially useful for factors
+```{r}
+table(pretest$Q1,pretest$Q24)
+```
+
+How many levels of factor are there and lists the levels
+```{r}
+nlevels(pretest$Q2)
+levels(pretest$Q2)  
+```
+
+Completely remove a variable
+```{r}
+pretest$Q15 <- NULL
+```
+
+# Section 3. Graphing
+
+Graphing can be accomplishing using just the R base libraries. But, graphing is greatly expanded with ggplot2. I'll just show you with ggplot2.
+
+## Scatterplots
+
+The data I will use comes from the mpg dataset. This has miles per gallon. 
+
+```{r}
+library(ggplot2)
+qplot(x = cty, y = hwy, data = mpg)
+```
+
+That command is identical to the previous one.
+```{r}
+ggplot(aes(x = cty, y = hwy), data = mpg) + geom_point()
+```
+
+The advantage of the second line is that you'll often build up and change graphs.
+```{r, eval = FALSE}
+g0 <- ggplot(aes(x = cty, y = hwy), data = mpg)
+g0 + geom_point() + theme_bw()  # let's give it a black and white theme
+g0 + geom_point(col = "orange") + theme_bw()  # bw theme and orange points
+(g1 <- g0 + geom_point(col = "orange", shape = 2) +
+  theme_bw())  # bw theme and orange triangles, () echo
+(g1 <- g0 + geom_point(aes(colour = manufacturer), shape = 2) +
+   theme_bw()) 
+```
+Add a best fit
+```{r, eval = FALSE}
+(g2 <- g1 + stat_smooth(aes(color = manufacturer),method = "lm", formula = y ~ x))
+```
+
+Continue to modify the graph and polish it a little bit
+```{r, eval = FALSE}
+# Continue to modify the graph and polishing it a little
+g2 + xlab("city miles per gallon") + ylab("highway miles per gallon") + 
+  scale_color_brewer(palette = "Set1") +
+  theme(legend.position = "bottom") +
+  ggtitle("Highway Mileage vs. City Mileage")
+```
+
+This is how to make box plots.
+```{r, eval = FALSE}
+ggplot(aes(y = hwy, x = manufacturer), data = mpg) + geom_boxplot()
+ggplot(aes(y = hwy, x = manufacturer), data = mpg) +
+  geom_boxplot(aes(fill = manufacturer), outlier.color = "green" )
+```
+
+Here are some marginal plot of highway mileage
+```{r, eval = FALSE}
+ggplot(data = mpg, aes(hwy)) + geom_histogram(fill="white", color = "red") +
+  xlab("Highway Mileage") + ylab("Frequency")
+
+ggplot(data = mpg, aes(hwy)) + geom_histogram(fill="white", color = "red") +
+  xlab("Highway Mileage") + ylab("Frequency") + facet_grid(.~class)
+
+ggplot(data = mpg, aes(hwy)) + geom_histogram(aes(fill=class, color = class)) +
+  xlab("Highway Mileage") + ylab("Frequency") + facet_grid(manufacturer~class) 
+```
+
+Extra plotting help visit: http://docs.ggplot2.org/current/. Lots of great information is available there.
+
+
+# Section 4. Regression and ANOVA
+
+```{r, eval = F}
+# t-test
+t.test(ACT_MATH~GENDER, data = pretest)
+
+# As a regression
+m0 <- lm(ACT_MATH ~ GENDER, data = pretest)
+summary(m0)
+
+pretest$white <- ifelse(pretest$ETHDESCR == "White     ", "White","Non-White")
+table(pretest$white)
+pretest$red.ethnic <- ifelse(pretest$ETHDESCR == "White     ", "White",
+                            ifelse(pretest$ETHDESCR ==  "Black     ", "Black", "Other"))
+
+red.ethnic <- ifelse(pretest$ETHDESCR == "White     ", "White",
+                     ifelse(pretest$ETHDESCR ==  "Black     ", "Black", "Other"))
+
+# Which is of course also a one-factor ANOVA
+anova(m0)
+
+# Note, that the p-values were close but not identical. 
+t.test(ACT_MATH~GENDER, data = pretest, var.equal = FALSE)
+
+# m0 contains information
+str(m0)  # it's a list of 14 items
+
+# Can access these directly
+m0$coef
+m0$residuals
+
+# Or through R commands
+coef(m0)
+print(residuals(m0), digits = 2)
+
+# You can get a lot of diagnostic information from plotting model
+plot(m0)
+
+# Simple linear regression
+m1 <- lm(CUM_GPA ~ ACT_TOTL, data = pretest)
+summary(m1)
+plot(m1)  # model looks pretty reasonable
+
+# Box-Cox transformation
+library(MASS)
+boxcox(m1)
+
+# Multiple regression
+m2 <- lm(CUM_GPA ~ HSPR + STATGRAD, data = pretest)
+summary(m2)
+
+# ANOVA
+m3 <- lm(CUM_GPA ~ GENDER + ETHDESCR + GENDER*ETHDESCR, data = pretest)
+anova(m3)
+
+# Fit the model with everything in it except STATGRAD and id
+m4 <- lm(CUM_GPA ~ . - id - STATGRAD, data = pretest)
+summary(m4)
+
+# Do stepwise selection, but can't have missing data
+# Omit missing data
+pretest.m <- na.omit(pretest)
+m5 <- lm(CUM_GPA ~ . - id - STATGRAD, data = pretest.m)
+
+# Stepwise (unwise) selection
+step.mod <- stepAIC(m5)
+summary(step.mod)
+```
+

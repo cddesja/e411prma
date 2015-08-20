@@ -50,6 +50,12 @@ library(knitr)
 %\frame{\tableofcontents}
 
 \begin{frame}
+\begin{center}
+\includegraphics[trim = 190 0 0 0, clip = TRUE, scale = .45]{images/ztable.png}
+\end{center}
+\end{frame}
+
+\begin{frame}
   \frametitle{SAT}
   
   The SAT is an aptitude test that high school students take. It is one of the criteria that is used in a college's decision to admit a student. It is composed of a math and a verbal section. Each has a mean of 500 and a standard devation of 110 and is normally distributed. 

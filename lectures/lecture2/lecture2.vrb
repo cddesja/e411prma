@@ -1,0 +1,11 @@
+\frametitle{Model Summary}
+\begin{tabular}{lllll}
+\hline
+Parameter & Estimate & SE & t-value & p-value \\
+$\beta_0$ & 57.57  & 0.11 & 506.01 & < .001 \\
+$\beta_1$ & 0.08 & 0.001 & 91.98 & < .001 \\
+\hline
+\end{tabular}
+
+\vspace{.5cm}
+\textcolor{red}{How does this relate to correlation?}

@@ -51,7 +51,7 @@ library(knitr)
 
 \begin{frame}
 \begin{center}
-\includegraphics[trim = 190 0 0 0, clip = TRUE, scale = .45]{images/ztable.png}
+\includegraphics[trim = 100 0 0 0, clip = TRUE, scale = .4]{images/ztable.png}
 \end{center}
 \end{frame}
 
@@ -83,7 +83,7 @@ library(knitr)
     \item<3-> \textcolor{red}{stanine}, range from 1 to 9, are centered at 5 with a standard deviation of 2. Each stanine, corresponds to 1/2 a standard deviation and the 5th stanine is at the mean.
       \begin{itemize}
         \item<4-> If you were in the 3rd stanine, what would your z-score be?
-        \item<5-> How many people would be below you?
+        \item<5-> How many people would be below you assuming 1000 people took the same test as you?
         \item<6-> What percent of the people are between the 3rd and the 6th stanines?
       \end{itemize}
       \item<7-> Various linear and non-linear transformations are done to create scores and scores may be normalized.

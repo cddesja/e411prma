@@ -274,4 +274,4 @@ ggplot(data = mpg, aes(hwy)) + geom_histogram(aes(fill=class, color = class)) +
   xlab("Highway Mileage") + ylab("Frequency") + facet_grid(manufacturer~class) 
 ```
 
-Extra plotting help visit: http://docs.ggplot2.org/current/. Lots of great information is available there.
+Extra plotting help visit: http://docs.ggplot2.org/current/. Lots of great information is available there.  

@@ -1,13 +1,6 @@
-if(!require("shiny")){
-  install.packges("shiny")
-  library("shiny")
-}
 
-if(!require("ggplot2")){
-  install.packges("ggplot2")
-  library("ggplot2")
-}
-
+library("shiny")
+library("ggplot2")
 shinyApp(
   ui = fluidPage(
   titlePanel("Correlations"),

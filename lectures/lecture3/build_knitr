@@ -1,0 +1,3 @@
+#!/bin/bash
+Rscript lecture3.R
+pdflatex lecture3.tex

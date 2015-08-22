@@ -1,0 +1,164 @@
+---
+title: 'R Assignment #1'
+author: "Your Name"
+date: "3 September 2015"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Instructions
+
+### Brief introduction to R Markdown 
+
+We will be using R Markdown for the R assignments. Why? Because it is an easy way to keep your answers and your R code in one place and it is easier for me to understand what you did and if you went astray. It will make help you make connections between your answers and your R code more seamless.
+
+You can find out lots of stuff about R Markdown online and you can use this cheat sheet available at <https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf>. 
+
+For this class, you only need to know two things. 
+
+First, the hashtags correspond to headings. For example,
+
+# First heading
+## Second heading
+### Third heading
+
+and so up to six heading. You only need to use one level of heading to delineate questions as I've done below. But if you want to better organize your homework you are welcome to do.
+
+The second thing you need to know is that to include R code you need to create a special environment by doing the following:
+
+```{r}
+# ```{r} - this initiates the special environment 
+# Example of how you include R code and add 2 + 2 together
+2 + 2
+# ``` - this terminates the special environment
+```
+
+Try not to get to confused by the hashtag in the R code. That is a comment and not a heading. It is there just for me to explain what the code is doing. 
+
+The final thing you need to know is that you need to press "Knit HTML" to actually create your document. You will send your homework to me as an HTML file.
+
+That's everything you need to know about R Markdown. 
+
+### Note about running R code
+Always, always write R code in this window! Never write it in the window below. When you type R code in the special environment, you can run a line of code without needing to hit "Knit HTML". You can do this in two ways:
+
+1. Hit the "Run" button
+2. Hit Ctrl+Enter on a Windows computer or Command+Enter on a Mac
+
+This is very good for quickly testing that your code is working!
+
+You can safely delete everything in the Introduction heading (including the Introduction header) through the R Assignment 1 header below before you turn in R assignment 1. In fact, that would be nice :) 
+
+# R Assignment 1
+
+For this assignment, you'll be calculating a variety of descriptive statistics, running a simple linear regression, and making/interpreting a couple of plots. Below is the code you'll need for this assignment.
+
+```{r, echo = F, eval = F}
+# The special arguments above are just to tell R Markdown not to print this in your final HTML document
+#
+# I will use the women dataset which includes height and weight data on women as examples of how to run R code. 
+#
+# -- If you want to learn about a dataset, you run the following R code -- #
+?women
+
+# -- To find out the names of the variables in the data set -- #
+names(women)
+
+# -- To find out how many observations (i.e. subjects) are in the data set -- #
+nrow(women)
+
+# -- Within the women dataset there are two variables: height and weight. To access a variable you type: dataset$variable -- #
+women$height
+
+# -- To get descriptive statistics for the dataset, you run the following: -- #
+summary(women)
+
+# -- To find the standard deviation for a variable, say the height of women, you run the following -- #
+sd(women$height)
+
+# -- To find the Pearson correlation between variables -- #
+cor(women)
+
+# -- To find Spearman's rho -- #
+cor.test(women$height, women$weight, method = "spearman")$estimate
+# The only thing you would change is the names of the first arguments
+# For example: cor.test(data$variable1, data$variable2, method = "spearman")$estimate
+
+# -- To plot a single variable (a marginal plot) -- #
+hist(women$height)
+
+# -- To create a scatterplot -- #
+# y will be for the y-axis
+# x will be for the x-axis
+plot(y = women$weight, x = women$height)
+
+# To run a simple linear regression, where weight is the response variable, height is the predictor, and women is the data -- #
+mod1 <- lm(weight ~ height, data = women)
+# Notice that the syntax is lm(response ~ prediator, data = data)
+
+# -- To get summary information -- #
+summary(mod1)
+# Note that the first line corresponds to the intercept
+# The second line corresponds to the slope term (i.e. predictor variable)
+
+# -- To get 95% confidence intervals -- #
+confint(mod1)
+# first is for the intercept
+# second for the slope, your predictor
+
+# -- To get a residual plot -- #
+plot(mod1, which = 1)
+
+# -- Finally, to get R squared -- #
+summary(mod1)$r.squared
+
+
+# This is all the R code you will need for this assignment
+```
+
+For this assignment, we'll be using the cars dataset. You can assess it by
+
+```{r, eval = F}
+cars
+```
+
+After this assignment, we will start using the Harry Potter instrument for the next few R assignments. 
+
+Please answer your questions below the question headings and include all the R code that you used to answer the question (if R code was required) below your response.
+
+### Question 1 - Describe the cars dataset
+
+#### Question 1a: How many variables are in the cars dataset? (1 pt)
+
+#### Question 1b: What are the names of the variables in the cars dataset and what do they mean? (2 pts)
+
+#### Question 1c: How many observations are there in the cars dataset? (1 pt)
+
+#### Question 1d: Examine the descriptive statistics for the cars dataset. Please report the median and the mean for the variables and comment on what this implies about skewness. (3 pts)
+
+#### Question 1d: What kind of variables are in the cars dataset (i.e. are they nominal, ordinal, ratio, or interval)? (1 pt)
+
+#### Question 1e: What kind of correlation coefficient would you calculate? Why? (2 pts)
+
+#### Question 1f: Calculate the appropriate correlation coefficient and interpret it. (2 pts)
+
+### Question 2 - Visualize your data
+
+#### Question 2a: Plot one of the variables (i.e. create a marginal plot) and describe the distribution. For the description of the distribution think about whether it looks symmetric, skewed, kurtotic, or normal. (5 pts)
+
+#### Question 2b: Create a scatterplot of two variables in the cars dataset and describe their relationship. For the description, is the relationship linear, are their outliers, is there a lot of variability around the line, does this reflect the value of the correlation coefficient you could? (5 pts) 
+
+### Question 3 - Simple linear regression
+
+#### Question 3a: Run a simple linear regression model. State which variable you used as the response and which you used as the predictor and explain why you made this decision? (2 pt)
+
+#### Question 3b: What is the p-value for the predictor (i.e. the slope term)? Please provide an interpretation of this p-value. Did you reject or fail to reject your null hypothesis? (3 pts)
+
+#### Question 3c: Interpret the slope term. (1pt)
+
+#### Question 3d: Does the 95% confidence interval for your predictor agree with what you found in question 3b (i.e. the p-value and your hypothesis test)? Why? (2 pts)
+
+#### Question 3e: Plot your residuals; describe your residual plot; and comment on whether your model is appropriate or not based on this plot. (3 pts) 

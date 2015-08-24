@@ -33,7 +33,7 @@
 \title{E-411-PRMA}
 \subtitle{Lecture 3}
 \author{Christopher David Desjardins}
-\date{17 August 2015}
+\date{24 August 2015}
 
 \begin{document}
 
@@ -45,12 +45,6 @@ opts_chunk$set(fig.height=6, fig.align = 'center', echo = FALSE, message = FALSE
 library(knitr)
 @
 
-
-
-\frame{\titlepage}
-
-\section[Outline]{}
-\frame{\tableofcontents}
 
 \begin{frame}
 \frametitle{This week}
@@ -157,15 +151,15 @@ X[shape = square, fillcolor = white, label = 'X']
 \end{frame}
 
 \begin{frame}
-\frametitle{Partition of variance in CTT}
+\frametitle{Partitioning of variance in CTT}
 $$\underbrace{\sigma^2_X}_{\text{Observed Score Variance}} = \underbrace{\sigma^2_T}_{\text{True Score Variance}} + \underbrace{\sigma^2_E}_{\text{Error Variance}}$$
 \begin{itemize}
-  \item True score variance is considered to be static (i.e.\ it never changes based on the test)
-  \item What affect does error variance have on ...
+  \item<2-> True score variance is considered to be static (i.e.\ it never changes based on the test)
+  \item<3-> What affect does error variance have on ...
     \begin{itemize}
-      \item The consistency of scores?
-      \item The usefulness of test?
-      \item Observed score variance?
+      \item<4-> The consistency of scores?
+      \item<5-> The usefulness of test?
+      \item<6-> Observed score variance?
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -221,9 +215,9 @@ $$\underbrace{\sigma^2_X}_{\text{Observed Score Variance}} = \underbrace{\sigma^
 $$\text{reliability} = \frac{\overbrace{\sigma^2_T}^{\text{true score variance}}}{\underbrace{\sigma^2_X}_{\text{observed score variance}}}$$
 
 \begin{itemize}
-  \item What is the interpretation?
-  \item What can reliability range from?
-  \item What are estimates of reliability you've heard of??
+  \item<2-> What is the interpretation?
+  \item<3-> What can reliability range from?
+  \item<4-> What are estimates of reliability you've heard of??
 \end{itemize}
 \end{frame}
 

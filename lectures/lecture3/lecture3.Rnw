@@ -45,6 +45,7 @@ opts_chunk$set(fig.height=6, fig.align = 'center', echo = FALSE, message = FALSE
 library(knitr)
 @
 
+\frame{\titlepage}
 
 \begin{frame}
 \frametitle{This week}

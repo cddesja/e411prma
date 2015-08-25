@@ -36,7 +36,10 @@ The second thing you need to know is that to include R code you need to create a
 # ``` - this terminates the special environment
 ```
 
+You can insert this by clicking "Chunks" -> "Insert Chunk"
+
 Try not to get to confused by the hashtag in the R code. That is a comment and not a heading. It is there just for me to explain what the code is doing. 
+
 
 The final thing you need to know is that you need to press "Knit HTML" to actually create your document. You will send your homework to me as an HTML file.
 

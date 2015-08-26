@@ -25,7 +25,7 @@ First, the hashtags correspond to headings. For example,
 ## Second heading
 ### Third heading
 
-and so up to six heading. You only need to use one level of heading to delineate questions as I've done below. But if you want to better organize your homework you are welcome to do.
+and so up to six heading. You only need to use one level of heading to delineate questions as I've done below. But if you want to better organize your homework you are welcome to do so.
 
 The second thing you need to know is that to include R code you need to create a special environment by doing the following:
 

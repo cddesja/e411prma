@@ -1,0 +1,39 @@
+\begin{knitrout}\tiny
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{lsat} \hlkwb{<-} \hlkwd{read.csv}\hlstd{(}\hlstr{"http://cddesja.github.io/classes/e411prma2015-1/lecture3/data/lsat.csv"}\hlstd{)}
+\hlstd{kr20} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{data}\hlstd{)\{}
+  \hlstd{p} \hlkwb{<-} \hlkwd{colMeans}\hlstd{(data)}
+  \hlstd{q} \hlkwb{<-} \hlnum{1} \hlopt{-} \hlkwd{colMeans}\hlstd{(data)}
+  \hlstd{num} \hlkwb{<-} \hlkwd{sum}\hlstd{(p} \hlopt{*} \hlstd{q)}
+  \hlstd{denom} \hlkwb{<-} \hlkwd{var}\hlstd{(}\hlkwd{rowSums}\hlstd{(data))}
+  \hlstd{k} \hlkwb{<-} \hlkwd{ncol}\hlstd{(data)}
+  \hlstd{k} \hlopt{/} \hlstd{(k} \hlopt{-} \hlnum{1}\hlstd{)} \hlopt{*} \hlstd{(}\hlnum{1} \hlopt{-} \hlstd{num} \hlopt{/} \hlstd{denom)}
+\hlstd{\}}
+\hlkwd{kr20}\hlstd{(lsat)}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.2959522
+\end{verbatim}
+\begin{alltt}
+\hlstd{coef_alpha} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{data}\hlstd{)\{}
+  \hlstd{num} \hlkwb{<-} \hlkwd{sum}\hlstd{(}\hlkwd{apply}\hlstd{(data,} \hlnum{2}\hlstd{, var))}
+  \hlstd{denom} \hlkwb{<-} \hlkwd{var}\hlstd{(}\hlkwd{rowSums}\hlstd{(data))}
+  \hlstd{k} \hlkwb{<-} \hlkwd{ncol}\hlstd{(data)}
+  \hlstd{k} \hlopt{/} \hlstd{(k} \hlopt{-} \hlnum{1}\hlstd{)} \hlopt{*} \hlstd{(}\hlnum{1} \hlopt{-} \hlstd{num} \hlopt{/} \hlstd{denom)}
+\hlstd{\}}
+\hlkwd{coef_alpha}\hlstd{(lsat)}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.2949972
+\end{verbatim}
+\begin{alltt}
+\hlcom{# 95% confidence interval}
+\hlstd{cocron}\hlopt{::}\hlkwd{cronbach.alpha.CI}\hlstd{(}\hlkwd{coef_alpha}\hlstd{(lsat),} \hlkwc{n} \hlstd{=} \hlkwd{nrow}\hlstd{(lsat),} \hlkwc{items} \hlstd{=} \hlnum{5}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## lower.bound upper.bound
+##   0.2234738   0.3618025
+\end{verbatim}
+\end{kframe}
+\end{knitrout}

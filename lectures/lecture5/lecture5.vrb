@@ -1,0 +1,18 @@
+\frametitle{CVR in $R$}
+\begin{itemize}
+\item "Does your child bite other children?"
+\item 20 experts, 17 say ``essential"
+\end{itemize}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{CVR} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{n}\hlstd{,} \hlkwc{essential}\hlstd{)\{}
+  \hlstd{(essential} \hlopt{-} \hlstd{n}\hlopt{/}\hlnum{2}\hlstd{)}\hlopt{/}\hlstd{(n}\hlopt{/}\hlnum{2}\hlstd{)}
+\hlstd{\}}
+\hlkwd{CVR}\hlstd{(}\hlkwc{n} \hlstd{=} \hlnum{20}\hlstd{,} \hlkwc{essential} \hlstd{=} \hlnum{17}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.7
+\end{verbatim}
+\end{kframe}
+\end{knitrout}

@@ -44,7 +44,9 @@ opts_chunk$set(fig.height=6, fig.align = 'center', echo = FALSE, message = FALSE
 @
 
 <<setup, include=FALSE, cache=FALSE>>=
-library(knitr)
+library("knitr")
+library("ggplot2")
+library("wesanderson")
 @
 
 \frame{\titlepage}
@@ -234,7 +236,7 @@ If Anna took a second test and got a score of 8 and the reliability coefficient 
 	\item Typically administered to 15, 16, and 17 year olds (sophomores, juniors, and seniors) in the USA
 	\item Purpose to measure college readiness
 	  \begin{itemize}
-	    \item def'n: College readiness benchmark associated with a 65\% probability of earning a first-year GPA of 2.67 or higher.
+	    \item def'n: How successful they are during their first year (often an measure of first year GPA).
 	  \end{itemize}
 	\item Schools within a city, within a state, and across states in the USA are quite diverse
 	\item \textcolor{wapurple}{Would this test be valid for Iceland?}
@@ -281,8 +283,8 @@ If Anna took a second test and got a score of 8 and the reliability coefficient 
 	\item How adequately the test represents the latent construct of interest
 	\item Do the items throughly and completely tap into the latent construct?
 	\item Content valid test would have percentage of items on each topics to be proportional to the amount of time spent on these topics
-	\item \textcolor{RoyalBlue}{How can we be sure I am teaching the entire domain of psychological testing?}
-	\item Create a \textcolor{Bittersweet}{test blueprint} 
+	\item \textcolor{wapurple}{How can we be sure I am teaching the entire domain of psychological testing?}
+	\item Create a \textcolor{wared}{test blueprint} 
 		\begin{itemize}
 			\item What could be conceivably measured and in what proportion
 			\item Number of questions, types of questions, areas covered, organization, etc
@@ -294,9 +296,9 @@ If Anna took a second test and got a score of 8 and the reliability coefficient 
 \frametitle{Assessing Content Validity}
 \begin{itemize}
 	\item Assume you are giving an instrument to measure aggressive behavior in children
-	\item \textcolor{RoyalBlue}{How can we assume this is measuring the construct of aggression quantitatively?}
+	\item \textcolor{wapurple}{How can we assume this is measuring the construct of aggression quantitatively?}
 		\begin{itemize}
-			\item Experts assess whether each item is essential, useful, not necessary to the definition of aggression
+			\item Experts assess whether each item is essential, useful, or not necessary to the definition of aggression
 			\item $CVR = \frac{n_e - (N / 2)}{N / 2}$
 			\item Where $n_e$ is number say ``essential" and N is number of experts
 			\item Want this larger than chance (Table 6-1)
@@ -340,96 +342,215 @@ CVR(n = 20, essential = 17)
 \frametitle{Criterion-Related Validity}
 \begin{itemize}
 	\item What the test score tells you about where a person falls on the underlying construct being measured w.r.t a criterion 
-	\item  A \textcolor{Bittersweet}{criterion} is a benchmark or standard used for comparison
-	\item Score high on an instrument measuring depression, \textit{but do you really have depression}?
-	\item Show no symptoms of depression, instrument is \textcolor{RoyalBlue}{irrelevant} and \textcolor{RoyalBlue}{invalid}  
+	\item  A \textcolor{wared}{criterion} is a benchmark or standard used for comparison
+	\item Scores on a new IQ instrument, \textit{but do you really know that high scores mean high IQ}?
+	  \begin{itemize}
+	    \item Should be \textcolor{wared}{relevant}, e.g.\ people that are known to be have high IQs (MENSA) should score highly on this instrument 
+	    \item Should be \textcolor{wared}{valid} for measuring IQ, e.g.\ who created this instrument, does it correlate with established IQ instruments (e.g.\ WAIS or Stanford-Binet)?
+	  \end{itemize}
 \end{itemize}
 }
+
+
 
 \frame{
 \frametitle{Measuring Depression}
 \begin{itemize}
 	\item Predict whether someone is receiving counseling services based on Beck Depression Inventory
+	  \begin{itemize}
 	\item Find out BDI was used to determine whether someone should receive services
-	\item \textcolor{RoyalBlue}{What is wrong with this?} 
+	  \end{itemize}
+	  \item In addition, to self-report and parent report, you ask teachers to rate students on externalizing behaviors
+	  \begin{itemize}
+	    \item After all the students' scores have been calculated, ask teachers to comment on them
+	  \end{itemize}
+	\item \textcolor{wared}{What is wrong with this?} 
 \end{itemize}
 }
 
 \frame{
-\frametitle{Forms of C-R Validity}
+\frametitle{Concurrent Validity}
 \begin{itemize}
-\item \textcolor{Bittersweet}{Concurrent Validity}
-	\begin{itemize}
-		\item Instrument provides the same ``scores" as an already validated measure
-		\item Instruments must be administered at the same time (or nearly so)
-		\item Example?
-	\end{itemize}
-\item \textcolor{Bittersweet}{Predictive Validity}
-	\begin{itemize}
-		\item How well an instrument predicts some criterion in the future
-		\item SAT should measure ``college success"
-		\item So it should be highly correlated with?
-	\end{itemize}
-\item 	\textcolor{Bittersweet}{validity coefficient}: an ``appropriate" measure of association
+\item \textcolor{wapurple}{Concurrent Validity}
+\begin{itemize}
+	  \item Test scores are obtained at the \textit{same time} as the criterion measures are obtained
+	  \item Measures of the relationship between the test and the criterion are \textcolor{wared}{concurrent validity evidence}
+		\item \textcolor{wapurple}{Example?}
+	\end{itemize}	
+		\item If test scores (test new) correlate with a test (test old) that has already been validated to measure the criterion, then test old can be used as a \textcolor{wared}{validating criterion}
+		\item \textcolor{wapurple}{When might you do this?}
 \end{itemize}
 }
+
+\begin{frame}
+\frametitle{Predictive Validity}
+\begin{itemize}
+  \item \textcolor{wapurple}{Predictive Validity}
+    \begin{itemize}
+	    \item Test scores are obtained \textit{before} the criterion measures are obtained
+	    \item How accurately does the test scores predict the criterion measures
+	  \begin{itemize}
+		  \item SAT measures ``college readiness"
+		  \item What could be our future criterion?
+		  \item What relationship would we expect between the scores and this criterion?
+		  \item Could we use dropout (i.e.\ student attrition)?
+		\end{itemize}
+  \end{itemize}
+  \end{itemize}
+\end{frame}
 
 \frame{
 \frametitle{Validity Coefficient}
 \begin{itemize}
 	\item In summary, everything that affects the correlation coefficient!
 	\item Range restriction from attrition in a study or self-selection  
-	\item Make sure testtakers are relevant in the validation study and cover the scope of the test! 
-	\item Read the test manual and make sure test is appropriate for your testtakers 
-	\item \textcolor{RoyalBlue}{Coefficient should be high enough to matter}
+	\item Make sure testtakers are relevant in your validation study and cover the scope of the test 
+	\item Read the test manual and make sure test is appropriate for your testtakers
+	  \begin{itemize}
+	    \item Does their validity study map well to your target population and purpose?
+	  \end{itemize}
+	\item \textcolor{wared}{Coefficient should be high enough to matter}
 \end{itemize}
 }
 
-\frame{
+\begin{frame}[fragile]
 \frametitle{Incremental Validity}
 \begin{itemize}
-	\item Want to predict final grade in first math class in college.
-	\item Add most important predictor first (maybe SAT math score if in the USA)
-	\item Then add additional variables, incrementally, and see what each predictor adds
-	\item This is akin to stepwise regression in multiple regression
-	\item \textcolor{RoyalBlue}{This is unwise because of inflation of type I error} (the probability of incorrectly rejecting a null hypothesis when you should have retained it)
+  \item Refers to the degree to which an additional predictor explains the criterion measure above and beyond that already explained by those predictors already included
+  \item Requirement: each predictor (obviously?) must have predictive validity
+    \begin{itemize}
+      \item Let predict final grade in students in a statistics course
+      \item We have several variables to choose from:
+    \end{itemize}
 \end{itemize}
-}
+<<size = "scriptsize">>=
+stat_precollege <- foreign::read.spss("/Users/chris/Documents/um/classes/2007_2008/Fall2007/epsy8261/labs/lab_1/STAT_PRECOLLEGE.sav", to.data.frame = T)
+names(stat_precollege)
+@
+\begin{itemize}
+  \item What should we do?
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item For simplicity, let's just look at the continuous variables first.
+\end{itemize}
+<<size = "scriptsize">>=
+cont <- sapply(stat_precollege, is.numeric)
+stat_cont <- stat_precollege[, cont]
+cor(stat_cont, use = "complete.obs")[,10]
+@
+\begin{itemize}
+\item Which variable would you think is the strongest predictor of statistics grade? 
+\item Which variables might have incremental validity?
+\item LET'S DO THIS TOGETHER!
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Expectancy tables}
+\begin{itemize}
+  \item Visualization tool
+  \item Test scores (or applicant/client ratings) are obtained and placed into some interval (e.g.\ "excellent", "good", "ok", "bad", "miserable")
+  \item Criterion measures obtained later (e.g.\ proficent in math or job performance)
+  \item Create a chart that shows relationship betwen test scores and criterion measure
+    \begin{itemize}
+      \item Essentially a contigency table
+    \end{itemize}
+  \item A major omission from your book - \textcolor{wared}{we need to check and see if this is larger than chance alone!}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{HR ratings and Job Performance}
+\begin{center}
+\begin{tabular}{lll}
+\hline
+& Satisfactory & Unsatisfactory \\
+\hline
+Excellent & 23 & 7 \\
+Average & 12 & 10 \\
+Poor & 12 & 13 \\
+\hline
+\end{tabular}
+\end{center}
+<<fig.height=4, fig.length = 4>>=
+perf <- c(rep("Satisfactory",47), rep("Unsatisfactory",30))
+hr_rating <- c(rep("Excellent", 23), rep("Average", 12), rep("Poor", 12), rep("Excellent", 7), rep("Average", 10), rep("Poor", 13))
+dat0 <- data.frame(Performance = perf, rating = hr_rating)
+percent_values <- table(dat0$Performance, dat0$rating)/colSums(table(dat0$Performance, dat0$rating))
+ggplot(dat0, aes(rating, fill = Performance)) + geom_bar()  + coord_flip() + scale_fill_manual(values = wes_palette("Moonrise2")) + xlab("Human Resources Rating") + ylab("") + theme(legend.position="bottom") + geom_text(aes(label="hi"), vjust=0)
+@
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+<<>>=
+M <- as.table(cbind(c(23, 12, 12), c(7, 10, 13)))
+chisq.test(M)
+@
+
+\begin{itemize}
+  \item<1-> H$_0$: There is no association between HR rating and job performance
+  \item<2-> Probably need to intervene with HR!
+\end{itemize}
+\end{frame}
+
 
 \frame{
 \frametitle{Construct Validity}
 \begin{itemize}
-	\item Evidence supporting that the test measures the underlying construct and that it can spread testtakers along that construct
-	\item A test maker has theories about the construct, it's definition, structure, and relationship to other constructs and has theories about how their test relates to other tests
-	\item All forms of validity are really subsumed within construct validity 
+	\item Evidence supporting that the test \textit{measures} the underlying construct and that it is capable of \textit{placing} test takers along that latent construct 
+	\item A test maker MUST have theories about the construct, it's definition, structure, and relationship to other constructs and has theories about how their test relates to other tests
+	\item If the test fails to discern test takers, need to know \textcolor{wared}{why}
+	  \begin{itemize}
+	    \item Recall all the various potential sources of error in testing
+	  \end{itemize}
+	\item All forms of validity could be considered subsets of construct validity 
 \end{itemize}
 }
 
 \frame{
-\frametitle{Types of Construct Validity}
+\frametitle{Construct Validity Evience}
 \begin{itemize}
-	\item \textcolor{Bittersweet}{Homogeniety}
+	\item \textcolor{wared}{Homogeniety}
 		\begin{itemize}
 			\item Structure of a test should be homogeneous if it is measuring a single construct
 			\item Responses to test items should be positively correlated with total score on the test
-			\item Items that are not need to be removed or rewritten
+			  \begin{itemize}
+			    \item What kind of correlation is this?
+			    \item Items that are not need to be removed or rewritten
+			    \item What to do with items that have low correlations?
+			    \item What does it mean to throw away items and rewrite them?
+			  \end{itemize}
+			\item Homogeneity implies inter item agreement ... how can we measure this?
 		\end{itemize}
-	\item Change with \textcolor{Bittersweet}{age} and  \textcolor{Bittersweet}{pre/post}
+	\item Change with \textcolor{wared}{age} and \textcolor{wared}{pre/post}
 		\begin{itemize}
-			\item Testtakers taking a test on algebra \textit{should} score higher if they are older
-			\item Students getting tutored in algebra between a pre and post test should score higher on the post test
+			\item Testtakers taking a test in reading \textit{should} score higher on comprehension if they are older
+			\item Students getting tutored in reading between a pre and post test should score higher on the post test
+			\item Should we be able to predict how anxiety will change as we get older? 
 		\end{itemize} 
 \end{itemize}
 }
 
 \frame{
-\frametitle{Types of Construct Validity}
+\frametitle{Construct Validity Evidence - contd}
 \begin{itemize}
-	\item Groups higher on the construct should have higher scores
+	\item<1-> Groups higher on the measured construct should have higher scores (\textcolor{wared}{method of contrasted groups})
 		\begin{itemize}
-			\item Administer a test measuring tendency toward violent behavior
-			\item Higher scores on test: General population or prison inmates for assault and battery
+			\item<1-> Administer a test measuring tendency toward violent behavior
+			\item<1-> Who should have higher scores: The general public or prison inamtes for assault and battery?
 		\end{itemize}
+	\item \textcolor{wared}{Convergent}<2-> - Test takers IQ scores on a new test should be correlated with their IQ score from an established and validated IQ tests (or a related construct)
+	\item \textcolor{wared}{Discriminant}<3-> - Test scores should be unrelated to scores from another instrument
+	    \begin{itemize}
+	      \item<3-> Ask students to score each other on leadership
+	      \item<3-> Ask students to score each other on popularity
+	      \item<3-> What does it mean if these two are uncorrelated?
+	    \end{itemize}
 \end{itemize}
 }
 
@@ -449,13 +570,15 @@ CVR(n = 20, essential = 17)
 	\item Test bias - degree to which a test systematically favors one group or another
 	\begin{itemize}
 		\item Can test for this statistically using logistic regression model
-		\item  Known as \textcolor{Bittersweet}{differential item functioning}
+		\item  Known as \textcolor{wared}{differential item functioning}
+		\item Errors by raters - too lightly, too severely, to the middle, too perfectly
 	\end{itemize}
 	\item Test fairness - the degree to which a test is fair and used in an equitable way
 		\begin{itemize}
-			\item Administer a test to a group not involved in the validation sample
+			\item What if we administer a test to a group not involved in the validation sample
 			\item Maybe some groups of people are just different?
 		\end{itemize}
+	\item \textcolor{wared}{Why do we care about bias and fairness?}
 \end{itemize}
 }
 

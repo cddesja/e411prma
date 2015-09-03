@@ -1,0 +1,16 @@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{verbatim}
+##
+## 	Pearson's Chi-squared test
+##
+## data:  M
+## X-squared = 5.2582, df = 2, p-value = 0.07214
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+\begin{itemize}
+  \item<1-> H$_0$: There is no association between HR rating and job performance
+  \item<2-> Probably need to intervene with HR!
+\end{itemize}

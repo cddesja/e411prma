@@ -276,10 +276,10 @@ Interquartile range ($Q_1$, $Q_2$, $Q_3$)
 
 Standard Deviation and Variance
 $$
-s = \sqrt{\frac{\sum{X_i - \bar{X}}}{n - 1}}
+s = \sqrt{\frac{\sum{(X_i - \bar{X})^2}}{n - 1}}
 $$
 $$
-s^2 = \frac{\sum{X_i - \bar{X}}}{n - 1}
+s^2 = \frac{\sum{(X_i - \bar{X})^2}}{n - 1}
 $$
 \end{frame}
 
@@ -556,7 +556,7 @@ cor(x, y)
 <<fig.height = 5>>=
 library("readr")
 library("ggplot2")
-body_meas <- read_csv(file = "~/Dropbox/cdd/GitHub/e411prma/lectures/lecture1/data/body_measurements.csv")
+body_meas <- read_csv(file = "~/GitHub/e411prma/lectures/lecture1/data/body_measurements.csv")
 qplot(y = height, x = weight, data = body_meas) + theme_bw()
 @
 \end{frame}

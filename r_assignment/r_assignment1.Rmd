@@ -1,12 +1,13 @@
 ---
-title: 'R Assignment #1'
+title: 'R Assignment #2'
 author: "Your Name"
-date: "3 September 2015"
+date: "17 September 2015"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+source("https://raw.githubusercontent.com/cddesja/validateR/master/R/reliability.R")
 ```
 
 # Instructions
@@ -55,96 +56,82 @@ This is very good for quickly testing that your code is working!
 
 You can safely delete everything in the Introduction heading (including the Introduction header) through the R Assignment 1 header below before you turn in R assignment 1. In fact, that would be nice :) 
 
-# R Assignment 1
+# R Assignment 2
 
-For this assignment, you'll be calculating a variety of descriptive statistics, running a simple linear regression, and making/interpreting a couple of plots. Below is the code you'll need for this assignment.
+For this assignment, you'll be calculating and interpreting various reliability and validity estimates within the classical test theory framework. As with before, we'll use an example to create all the `R` code you'll need for this assignment. The data set used in this example is called `score` from the `irtoys` package and I have saved it in the `score.csv` data set on Piazza. __Please download this data set before starting the example__.
+
+Here is how you read in the dataset:
+
+1. Click the "Environment" tab in the upper right pane of Rstudio
+2. Click the "Import Dataset"
+3. Click "From Text File..."
+4. Locate the `scores.csv` file. This is likely just in Downloads or where ever you put it.
+5. Make sure "Heading" is set to "Yes"
+6. Click "Import"
+
+To verify that this worked type: `head(score)`. If you don't get an error then everything is OK.
 
 ```{r, echo = F, eval = F}
 # The special arguments above are just to tell R Markdown not to print this in your final HTML document
 #
-# I will use the women dataset which includes height and weight data on women as examples of how to run R code. 
-#
-# -- If you want to learn about a dataset, you run the following R code -- #
-?women
 
-# -- To find out the names of the variables in the data set -- #
-names(women)
+# To get summary information about the dataset
+summary(score)
 
-# -- To find out how many observations (i.e. subjects) are in the data set -- #
-nrow(women)
+# To get it for just a variable
+summary(score$Item1)
 
-# -- Within the women dataset there are two variables: height and weight. To access a variable you type: dataset$variable -- #
-women$height
+# Get a correlation matrix. Note that correlation of a variable with itself is 1
+cor(score, use = "complete.obs")
 
-# -- To get descriptive statistics for the dataset, you run the following: -- #
-summary(women)
+# To split the data set into two
+first_split <- score[,seq(1, ncol(score), 2)]
+second_split <- score[,seq(2, ncol(score), 2)]
 
-# -- To find the standard deviation for a variable, say the height of women, you run the following -- #
-sd(women$height)
+# To create total test scores
+first_split$total <- rowSums(first_split)
+second_split$total <- rowSums(second_split)
 
-# -- To find the Pearson correlation between variables -- #
-cor(women)
+# To plot a variable:
+hist(first_split$total)
 
-# -- To find Spearman's rho -- #
-cor.test(women$height, women$weight, method = "spearman")$estimate
-# The only thing you would change is the names of the first arguments
-# For example: cor.test(data$variable1, data$variable2, method = "spearman")$estimate
+# To find the correlation between the total test scores
+cor(first_split$total, second_split$total)
 
-# -- To plot a single variable (a marginal plot) -- #
-hist(women$height)
+# To calculate coefficient alpha
+coef_alpha(score)
 
-# -- To create a scatterplot -- #
-# y will be for the y-axis
-# x will be for the x-axis
-plot(y = women$weight, x = women$height)
+# To calculate KR20
+kr20(score)
 
-# To run a simple linear regression, where weight is the response variable, height is the predictor, and women is the data -- #
-mod1 <- lm(weight ~ height, data = women)
-# Notice that the syntax is lm(response ~ prediator, data = data)
+# If you want to know how long a test should be given a desired reliability of 0.8, a current reliability of 0.75, and a current test length of 40.
+new_length(desired = 0.8, present = 0.75, test_length = 40)
+# Do note, that you should always round up!
 
-# -- To get summary information -- #
-summary(mod1)
-# Note that the first line corresponds to the intercept
-# The second line corresponds to the slope term (i.e. predictor variable)
+# To find sem first calculate variance of total test scores
+total_test <- rowSums(score)
+sigma <- var(total_test)
 
-# -- To get 95% confidence intervals -- #
-confint(mod1)
-# first is for the intercept
-# second for the slope, your predictor
-
-# -- To get a residual plot -- #
-plot(mod1, which = 1)
-
-# -- Finally, to get R squared -- #
-summary(mod1)$r.squared
-
-
-# This is all the R code you will need for this assignment
+# Then use a reliability estimate, can use any reliabilty estimate, but we'll using coef_alpha here.
+rel <- coef_alpha(score)
+sem(sigma, rel)
 ```
 
-For this assignment, we'll be using the cars dataset. You can assess it by
-
-```{r, eval = F}
-cars
-```
-
-After this assignment, we will start using the Harry Potter instrument for the next few R assignments. 
+For this assignment, we'll be using the Harry Potter pretest. Make sure you have downloaded the test, the Rmd file, and the `hp.csv` file. Note, that after you've read in the data, the data will be stored as `hp` unless you've changed something!
 
 Please answer your questions below the question headings and include all the R code that you used to answer the question (if R code was required) below your response.
 
-### Question 1 - Describe the cars dataset
+### Question 1 - Describing the test
 
-#### Question 1a: How many variables are in the cars dataset? (1 pt)
+#### Question 1a: Did everyone answer every question on the test (1 pt)?
 
-#### Question 1b: What are the names of the variables in the cars dataset and what do they mean? (2 pts)
+#### Question 1b: Which item was the easiest and which item was the hardest on the test (2 pt)?
 
-#### Question 1c: How many observations are there in the cars dataset? (1 pt)
+#### Question 1c: What is strange about item 4? Provide an explanation of what could be wrong with this item (2 pt). Hint: take a look at the test question. 
 
-#### Question 1d: Examine the descriptive statistics for the cars dataset. Please report the median and the mean for the variables and comment on what this implies about skewness. (3 pts)
+#### Question 1d: Choose one item from the test and describe it. Describe it's mean, it's variance, and it's distribution by plotting the variable (3 pt).
 
-#### Question 1d: What kind of variables are in the cars dataset (i.e. are they nominal, ordinal, ratio, or interval)? (1 pt)
-
-#### Question 1e: What kind of correlation coefficient would you calculate? Why? (2 pts)
+#### Question 1e: Which two items are the most correlated? Which two variables are the least correlated? Do these correlations make sense to you (3 pts)? Hint: Again take a look at the test questions. 
 
 #### Question 1f: Calculate the appropriate correlation coefficient and interpret it. (2 pts)
 

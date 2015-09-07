@@ -127,8 +127,21 @@ img {
 <li>Click “Import”</li>
 </ol>
 <p>To verify that this worked type: <code>head(score)</code>. If you don’t get an error then everything is OK.</p>
+<div id="note-if-you-are-on-a-windows-computer-and-you-are-getting-an-error-message-or-you-want-to-run-this-using-code-and-not-via-menus.-run-the-following" class="section level5">
+<h5>Note: If you are on a Windows computer and you are getting an error message or you want to run this using code and not via menus. Run the following:</h5>
+<pre class="r"><code># Reads in the score data set
+score &lt;- read.csv(&quot;https://piazza.com/class_profile/get_resource/ida6hrjndw36bz/ie79zoh6c8t48b&quot;, header = T)
+
+# Reads in the Harry Potter data set
+hp &lt;- read.csv(&quot;https://piazza.com/class_profile/get_resource/ida6hrjndw36bz/ie79zy0dr4a4a1&quot;, header = T)</code></pre>
+</div>
+<div id="you-must-run-this-command-before-you-start-this-assignment" class="section level5">
+<h5>YOU MUST RUN THIS COMMAND BEFORE YOU START THIS ASSIGNMENT!</h5>
+<pre class="r"><code>source(&quot;https://raw.githubusercontent.com/cddesja/validateR/master/R/reliability.R&quot;)</code></pre>
+<p>So, <strong>highlight that command and click “Run” before proceeding!</strong></p>
 <p>For this assignment, we’ll be using the Harry Potter pretest. Make sure you have downloaded the test, the Rmd file, and the <code>hp.csv</code> file. Note, that after you’ve read in the data, the data will be stored as <code>hp</code> unless you’ve changed something!</p>
 <p>Please answer your questions below the question headings and include all the R code that you used to answer the question (if R code was required) below your response.</p>
+</div>
 <div id="question-1---describing-the-test" class="section level3">
 <h3>Question 1 - Describing the test</h3>
 <div id="question-1a-did-everyone-answer-every-question-on-the-test-1-pt" class="section level4">

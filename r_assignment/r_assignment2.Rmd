@@ -7,7 +7,6 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-source("https://raw.githubusercontent.com/cddesja/validateR/master/R/reliability.R")
 ```
 
 # Instructions
@@ -70,6 +69,21 @@ Here is how you read in the dataset:
 6. Click "Import"
 
 To verify that this worked type: `head(score)`. If you don't get an error then everything is OK.
+
+##### Note: If you are on a Windows computer and you are getting an error message or you want to run this using code and not via menus. Run the following:
+```{r}
+# Reads in the score data set
+score <- read.csv("http://cddesja.github.io/classes/e411prma2015-3/data/score.csv", header = T)
+
+# Reads in the Harry Potter data set
+hp <- read.csv("http://cddesja.github.io/classes/e411prma2015-3/data/hp.csv", header = T)
+```
+
+#####YOU MUST RUN THIS COMMAND BEFORE YOU START THIS ASSIGNMENT! 
+```{r}
+source("http://cddesja.github.io/classes/e411prma2015-3/data/reliability.R")
+```
+So, __highlight that command and click "Run" before proceeding!__
 
 ```{r, echo = F, eval = F}
 # The special arguments above are just to tell R Markdown not to print this in your final HTML document

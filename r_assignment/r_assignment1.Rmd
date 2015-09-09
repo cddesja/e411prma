@@ -1,154 +1,126 @@
 ---
-title: 'R Assignment #2'
+title: 'R Assignment #1'
 author: "Your Name"
-date: "17 September 2015"
+date: "3 September 2015"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-source("https://raw.githubusercontent.com/cddesja/validateR/master/R/reliability.R")
 ```
 
-# Instructions
+### Question 1 - Describe the cars dataset
 
-### Brief introduction to R Markdown 
+#### Question 1a: How many variables are in the cars dataset? (1 pt)
+There are two variables in the cars dataset
+```{r}
+names(cars)
+```
 
-We will be using R Markdown for the R assignments. Why? Because it is an easy way to keep your answers and your R code in one place and it is easier for me to understand what you did and if you went astray. It will make help you make connections between your answers and your R code more seamless.
+#### Question 1b: What are the names of the variables in the cars dataset and what do they mean? (2 pts)
 
-You can find out lots of stuff about R Markdown online and you can use this cheat sheet available at <https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf>. 
-
-For this class, you only need to know two things. 
-
-First, the hashtags correspond to headings. For example,
-
-# First heading
-## Second heading
-### Third heading
-
-and so up to six heading. You only need to use one level of heading to delineate questions as I've done below. But if you want to better organize your homework you are welcome to do so.
-
-The second thing you need to know is that to include R code you need to create a special environment by doing the following:
+The names of the variables in the cars data set are `speed` and `dist`. Speed is the speed in miles per hour and dist is the stopping distance in feet. This information was obtained from the help page
 
 ```{r}
-# ```{r} - this initiates the special environment 
-# Example of how you include R code and add 2 + 2 together
-2 + 2
-# ``` - this terminates the special environment
+?cars
+names(cars)
 ```
 
-You can insert this by clicking "Chunks" -> "Insert Chunk"
-
-Try not to get to confused by the hashtag in the R code. That is a comment and not a heading. It is there just for me to explain what the code is doing. 
-
-
-The final thing you need to know is that you need to press "Knit HTML" to actually create your document. You will send your homework to me as an HTML file.
-
-That's everything you need to know about R Markdown. 
-
-### Note about running R code
-Always, always write R code in this window! Never write it in the window below. When you type R code in the special environment, you can run a line of code without needing to hit "Knit HTML". You can do this in two ways:
-
-1. Hit the "Run" button
-2. Hit Ctrl+Enter on a Windows computer or Command+Enter on a Mac
-
-This is very good for quickly testing that your code is working!
-
-You can safely delete everything in the Introduction heading (including the Introduction header) through the R Assignment 1 header below before you turn in R assignment 1. In fact, that would be nice :) 
-
-# R Assignment 2
-
-For this assignment, you'll be calculating and interpreting various reliability and validity estimates within the classical test theory framework. As with before, we'll use an example to create all the `R` code you'll need for this assignment. The data set used in this example is called `score` from the `irtoys` package and I have saved it in the `score.csv` data set on Piazza. __Please download this data set before starting the example__.
-
-Here is how you read in the dataset:
-
-1. Click the "Environment" tab in the upper right pane of Rstudio
-2. Click the "Import Dataset"
-3. Click "From Text File..."
-4. Locate the `scores.csv` file. This is likely just in Downloads or where ever you put it.
-5. Make sure "Heading" is set to "Yes"
-6. Click "Import"
-
-To verify that this worked type: `head(score)`. If you don't get an error then everything is OK.
-
-```{r, echo = F, eval = F}
-# The special arguments above are just to tell R Markdown not to print this in your final HTML document
-#
-
-# To get summary information about the dataset
-summary(score)
-
-# To get it for just a variable
-summary(score$Item1)
-
-# Get a correlation matrix. Note that correlation of a variable with itself is 1
-cor(score, use = "complete.obs")
-
-# To split the data set into two
-first_split <- score[,seq(1, ncol(score), 2)]
-second_split <- score[,seq(2, ncol(score), 2)]
-
-# To create total test scores
-first_split$total <- rowSums(first_split)
-second_split$total <- rowSums(second_split)
-
-# To plot a variable:
-hist(first_split$total)
-
-# To find the correlation between the total test scores
-cor(first_split$total, second_split$total)
-
-# To calculate coefficient alpha
-coef_alpha(score)
-
-# To calculate KR20
-kr20(score)
-
-# If you want to know how long a test should be given a desired reliability of 0.8, a current reliability of 0.75, and a current test length of 40.
-new_length(desired = 0.8, present = 0.75, test_length = 40)
-# Do note, that you should always round up!
-
-# To find sem first calculate variance of total test scores
-total_test <- rowSums(score)
-sigma <- var(total_test)
-
-# Then use a reliability estimate, can use any reliabilty estimate, but we'll using coef_alpha here.
-rel <- coef_alpha(score)
-sem(sigma, rel)
+#### Question 1c: How many observations are there in the cars dataset? (1 pt)
+There are 50 observations in the cars dataset.
+```{r}
+nrow(cars)
 ```
 
-For this assignment, we'll be using the Harry Potter pretest. Make sure you have downloaded the test, the Rmd file, and the `hp.csv` file. Note, that after you've read in the data, the data will be stored as `hp` unless you've changed something!
+#### Question 1d: Examine the descriptive statistics for the cars dataset. Please report the median and the mean for the variables and comment on what this implies about skewness. (3 pts)
+The mean and median for `speed` are 15.4 and 15.0, respectively. Given that the mean is slightly above the median you might expect that the data are slightly postively (or right) skewed. However, the difference is not very large, so the data may be roughly symmetric.
 
-Please answer your questions below the question headings and include all the R code that you used to answer the question (if R code was required) below your response.
+The mean and median for `dist` are 42.98 and 36.00, respectively. Given that mean is a bit above the median, you might expect that the data are positively (or right) skewed. You would expect dist to be more postive (or right) skewed than speed.
 
-### Question 1 - Describing the test
+```{r}
+summary(cars)
+```
 
-#### Question 1a: Did everyone answer every question on the test (1 pt)?
+#### Question 1e: What kind of variables are in the cars dataset (i.e. are they nominal, ordinal, ratio, or interval)? (1 pt)
 
-#### Question 1b: Which item was the easiest and which item was the hardest on the test (2 pt)?
+These are ratio variables as they have a true zero.
 
-#### Question 1c: What is strange about item 4? Provide an explanation of what could be wrong with this item (2 pt). Hint: take a look at the test question. 
+#### Question 1f: What kind of correlation coefficient would you calculate? Why? (2 pts)
 
-#### Question 1d: Choose one item from the test and describe it. Describe it's mean, it's variance, and it's distribution by plotting the variable (3 pt).
+I would calculate the Pearson correlation coefficient because the variables are ratio, continuous variables. If they were categorical, I would have considered Spearman's rank. However, if they are not bivariate normal and contain many outliers, then a Spearman's rank might be more appropriate. A Pearson correlation requires the association to be linear, Spearman's rank doens't. So if there are values that differ substantially from this linear relationship than Spearman's rank is more appropirate.
 
-#### Question 1e: Which two items are the most correlated? Which two variables are the least correlated? Do these correlations make sense to you (3 pts)? Hint: Again take a look at the test questions. 
+#### Question 1g: Calculate the appropriate correlation coefficient and interpret it. (2 pts)
 
-#### Question 1f: Calculate the appropriate correlation coefficient and interpret it. (2 pts)
+The correlation coefficient is 0.8068949. This means there is a __strong__ and __positive__ correlation between speed and dist. This implies that as we increase driving speed, we increase the stopping distance.
+
+```{r}
+cor(cars)
+```
 
 ### Question 2 - Visualize your data
 
 #### Question 2a: Plot one of the variables (i.e. create a marginal plot) and describe the distribution. For the description of the distribution think about whether it looks symmetric, skewed, kurtotic, or normal. (5 pts)
 
+##### For `speed`
+The distributiion looks roughly symmetric. There doesn't appear to be much kurtosis and, in general, the distribution looks roughly normal. The plot does indicates that there might be some slightly negative (or left) skew.
+
+```{r}
+hist(cars$speed)
+```
+
+##### For `dist`
+The distribution is definitely positively (or right)-skewed. It does not look normally distributed and it doesn't look kurtotic (i.e. no kurtosis) either. It is not symmetric.
+
+```{r}
+hist(cars$dist)
+```
+
 #### Question 2b: Create a scatterplot of two variables in the cars dataset and describe their relationship. For the description, is the relationship linear, are their outliers, is there a lot of variability around the line, does this reflect the value of the correlation coefficient you could? (5 pts) 
+
+The relationship between `dist` and `speed` looks roughly linear. In other words, a positive increase in speed corresponds to a roughly positive, linear increase in breaking distance. There is not a lot of variability around the line and the strong, positive linear relationship between the two variables agrees with the strength and direction of the correlation coefficient. Given that the association appears linear between the variables, this also corroborates the use of Pearson's correlation coefficient.
+
+There are a couple of observations that might be considered outliers and there is less observations at the extremes (i.e. at low and high speeds).
+
+```{r}
+plot(dist ~ speed, data = cars)
+```
 
 ### Question 3 - Simple linear regression
 
 #### Question 3a: Run a simple linear regression model. State which variable you used as the response and which you used as the predictor and explain why you made this decision? (2 pt)
 
+Breaking distance is the reponse variable and speed of the car is the predictor. It doesn't make sense to try and predict a car's speed given it's breaking distance but it does make sense the other way around. 
+
+```{r}
+mod1 <- lm(dist ~ speed, cars)
+```
+
+
 #### Question 3b: What is the p-value for the predictor (i.e. the slope term)? Please provide an interpretation of this p-value. Did you reject or fail to reject your null hypothesis? (3 pts)
+
+The p-value is 1.49e-12 (or less than .001). The p-value is the probability of obtaining results as extreme or more extreme than those observed given that the null hypothesis is true. So in this case, it is extremely unlikely that the slope of the predictor is 0 given our results. We reject the null hypothesis.
+
+```{r}
+summary(mod1)
+```
 
 #### Question 3c: Interpret the slope term. (1pt)
 
+The slope is 3.9324. This means that for a one mile per hour increase, the expected increase in breaking distance is 3.9324 feet.
+
 #### Question 3d: Does the 95% confidence interval for your predictor agree with what you found in question 3b (i.e. the p-value and your hypothesis test)? Why? (2 pts)
 
+```{r}
+confint(mod1)
+```
+
+Yes, the 95% confidence interval for the slope (3.096964, 4.767853) agrees with the findings from the hypothesis test. The reason is that the hypothesis is testing whether 0 is a likely value for the slope. We reject the null hypotheiss and that implies that 0 is an extremely unlikely value based on our p-value. Our 95% confidence interval tells us a range of plausible values for the true slope. 0 is not in the range of plausible values because it isn't between 3.096964 and 4.767853. Therefore, this agrees with the hypothesis test.  
+
 #### Question 3e: Plot your residuals; describe your residual plot; and comment on whether your model is appropriate or not based on this plot. (3 pts) 
+
+In general, the residual plot looks OK. However, there does appear to be increase in variability as you move from the left to the right. In other words, it looks like the residuals are fanning out. This could just be a function of the small number of observations when the speed of the car is slow, so this residual plot is probably OK and that would mean that our model is OK. However, it might be worth it to consider some transformations of our response variable and see what effect this might have on our findings. 
+
+
+```{r}
+plot(mod1, which = 1)
+```

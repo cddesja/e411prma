@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>E-411 PRMA Lecture 7</title>
+		<title>E-411 PRMA Lecture 8</title>
 
 		<meta name="description" content="Psychological Testing">
 		<meta name="author" content="Christopher David Desjardins">
@@ -82,7 +82,7 @@
 					<section>
 						<h2>Scale Issues</h2>
 						<blockquote >
-						&ldquo;Downloading movies is the same as stealing&rdquo;
+						&ldquo;People should be allowed to use marijuana for medicinal purposes&rdquo;
 					</blockquote>
 					<table>
 						<tbody>
@@ -97,6 +97,7 @@
 					</table>
 					<p class ="fragment"><font color="#01ABE9">Are the distances the same betwen the choices?</font></p>
 					<p class ="fragment"><font color="#01ABE9">What might affect are choices?</font></p>
+
 					</section>
 					<section>
 						<h2>More Scales</h2>
@@ -104,23 +105,12 @@
 							<li><p class ="fragment"><font color="#F54B1A">Paired comparsions</font> - choose between two options scored based on some criteria</li></p>
 							<li><p class ="fragment"><font color="#F54B1A">Comparative scaling</font> - items are arranged based on some criteria and <font color="#F54B1A">categorical scaling</font> - items into two or more categories</li></p>
 							<li><p class ="fragment"><font color="#F54B1A">Guttman scale</font> - items written in a sequential manner such that someone higher on the trait will agree with the strongest statements through the mildest statments</li></p>
+								<ul>
+									<li><p class = "fragment">Items need to be unidimensional</li>
+								</ul>
 						</ul>
 					</section>
-
-					<section>
-						<h3>Let's write some items that use these scales</h3>
-						<p>Let's brain storm 10 nouns</p>
-					</section>
-
-
-					<section>
-						<h2>Interval Scales</h2>
-						<ul>
-							<li><p class ="fragment">Could use Thurstone's <font color="#F54B1A">equal-appearing scale</font> (p 250 - 251)</li></p>
-							<li><p class ="fragment"><font color = "#1B346C">I am skeptical ... what do you think?</font></li></p>
-						</ul>
-					</section>
-				</section>
+			</section>
 
 				<section>
 					<h2>Let's write a test!</h2>
@@ -241,7 +231,7 @@
 						<h2>Item Difficulty - Example </h2>
 							<p class = "fragment"> Administer an item to 10 students and 4 students get the item correct</p>
 							<p class = "fragment"> What is the item's difficulty?</p>
-							<p class = "fragment"> If the item was a multiple choice with 5 distractors, what is the optimal item difficulty?
+							<p class = "fragment"> If the item was a multiple choice with 5 options, what is the optimal item difficulty?
 					</section>
 
 					<section>
@@ -263,28 +253,40 @@
 					<table>
 						<tbody>
 							<tr>
-								<td><font size = "5"> Item 1 </font></td>
+								<td><font size = "5"> Item 1 </font></td><td><font size = "5">Total Test Score</font></td>
 							</tr>
 							<tr>
-							<td><font size="5">1</font></td>
+							<td><font size="5">1</font></td><td><font size = "5">17</font></td>
 							</tr>
 							<tr>
-								<td><font size="5">0</font></td>
+								<td><font size="5">0</font></td><td><font size = "5">15</font></td>
 							</tr>
 							<tr>
-								<td><font size="5">0</font></td>
+								<td><font size="5">0</font></td><td><font size = "5">18</font></td>
 							</tr>
 							<tr>
-								<td><font size="5">1</font></td>
+								<td><font size="5">1</font></td><td><font size = "5">19</font></td>
 							</tr>
 							<tr>
-								<td><font size="5">1</font></dh>
+								<td><font size="5">1</font></dh><td><font size = "5">18</font></td>
 								</tr>
 								<tr>
 						</tbody>
 					</table>
 					<p><font size = "5">Assume correlation between item 1 and total test score is 0.7</font></p>
 					</section>
+
+						<section>
+					<h2>R-code</h2>
+					<pre><code>
+> item <- c(1,0,0,1,1)
+> ttest <- c(17,15,18,19,18)
+> r <- cor(item,ttest)
+> sigma <- sd(item)
+> r * sigma
+[1] 0.2967212
+					</code></pre>
+				</section>
 
 					<section>
 					<h2>Item Validity</h2>
@@ -314,6 +316,7 @@
 
 				<section>
 					<p> Example in R</p>
+					<p> See lecture7.R</p>
 				</section>
 
 				</section>

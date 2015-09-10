@@ -70,7 +70,8 @@ Here is how you read in the dataset:
 
 To verify that this worked type: `head(score)`. If you don't get an error then everything is OK.
 
-##### Note: If you are on a Windows computer and you are getting an error message or you want to run this using code and not via menus. Run the following:
+Also, if you just run these two commands, you will not need to read in the data!
+
 ```{r}
 # Reads in the score data set
 score <- read.csv("http://cddesja.github.io/classes/e411prma2015-3/data/score.csv", header = T)

@@ -17,7 +17,7 @@ r_cor <- cor(scores)[-19,19]
 
 # Calculate item reliabilites
 item_sd * r_cor
-
+sort(item_sd * r_cor)
 #
 # Item Discrimination Index
 # 

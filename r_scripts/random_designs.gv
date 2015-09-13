@@ -1,0 +1,34 @@
+digraph neato {
+      overlap = "false";
+      r1 [fontname = "Futura", shape=box, color = "#C27D38", style = "filled", label="Rater 1"];
+      r2 [fontname = "Futura", shape=box, color = "#C27D38", style = "filled", label="Rater 2"];
+      r1 -> {i1 i2 i3 i4 i5 i6 i7 i8 i9 i10}
+      r2 -> {i1 i2 i3 i4 i5 i6 i7 i8 i9 i10}
+      
+      i7 -> i11 [arrowhead ="none", color = "white"];
+      {rank = same; r1 r2}
+      {rank = same; i1 i2 i3 i4 i5 i6 i7 i8 i9 i10}
+      {rank = same; i11 i12 i13 i14 i15 i16 i17 i18 i19 i20}
+
+      i1 [fontname = "Futura", shape=box, color = "#798E87", style = "filled",label="Item 5"];
+      i2 [fontname = "Futura", shape=box, color = "#798E87", style = "filled",label="Item 6"];
+      i3 [fontname = "Futura", shape=box, color = "#798E87", style = "filled",label="Item 7"];
+      i4 [fontname = "Futura", shape=box, color = "#798E87", style = "filled",label="Item 8"];
+      i5 [fontname = "Futura", shape=box, color = "#798E87", style = "filled",label="Item 9"];
+      i6 [fontname = "Futura", shape=box, color = "#798E87", style = "filled",label="Item 10"];
+      i7 [fontname = "Futura", shape=box, color = "#798E87", style = "filled",label="Item 1"];
+      i8 [fontname = "Futura", shape=box, color = "#798E87", style = "filled",label="Item 2"];
+      i9 [fontname = "Futura", shape=box, color = "#798E87", style = "filled",label="Item 3"];
+      i10 [fontname = "Futura", shape=box, color = "#798E87", style = "filled",label="Item 4"];
+
+      i11 [fontname = "Futura", shape=box, color = "#CCC591", style = "filled",label="Item 11"];
+      i12 [fontname = "Futura", shape=box, color = "#CCC591", style = "filled",label="Item 20"];
+      i13 [fontname = "Futura", shape=box, color = "#CCC591", style = "filled",label="Item 30"];
+      i14 [fontname = "Futura", shape=box, color = "#CCC591", style = "filled",label="Item 40"];
+      i15 [fontname = "Futura", shape=box, color = "#CCC591", style = "filled",label="Item 50"];
+      i16 [fontname = "Futura", shape=box, color = "#CCC591", style = "filled",label="Item 100"];
+      i17 [fontname = "Futura", shape=box, color = "#CCC591", style = "filled",label="Item 200"];
+      i18 [fontname = "Futura", shape=box, color = "#CCC591", style = "filled",label="Item 500"];
+      i19 [fontname = "Futura", shape=box, color = "#CCC591", style = "filled",label="Item 1000"];
+      i20 [fontname = "Futura", shape=box, color = "#CCC591", style = "filled",label="Item 2000"];
+      }

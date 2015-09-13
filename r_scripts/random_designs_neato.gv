@@ -1,0 +1,34 @@
+digraph neato {
+   overlap = "false";
+   node [shape = circle, fontname = "Futura",color = "#29211F", style = "filled", fontsize = 10, fixedsize = "true"];
+   r1 [fillcolor = "#C27D38", label="Rater 1"];
+   r2 [fillcolor = "#C27D38", label="Rater 2"];
+   r3 [fillcolor = "#29211F",  label="Rater 3", fontcolor = "white"];
+   r4 [fillcolor = "#29211F", label="Rater 4", fontcolor = "white"];
+   r5 [fillcolor = "#29211F", label="Rater 5", fontcolor = "white"];
+   r1 -> {i1 i2 i3 i4 i5 i6 i7 i8 i9 i10}
+   r2 -> {i1 i2 i3 i4 i5 i6 i7 i8 i9 i10}
+   
+   
+   i1 [fillcolor = "#798E87", label="Q5"];
+   i2 [fillcolor = "#798E87", label="Q6"];
+   i3 [fillcolor = "#798E87", label="Q7"];
+   i4 [fillcolor = "#798E87", label="Q8"];
+   i5 [fillcolor = "#798E87", label="Q9"];
+   i6 [fillcolor = "#798E87", label="Q10"];
+   i7 [fillcolor = "#798E87", label="Q1"];
+   i8 [fillcolor = "#798E87", label="Q2"];
+   i9 [fillcolor = "#798E87", label="Q3"];
+   i10 [fillcolor = "#798E87", label="Q4"];
+
+   i11 [fillcolor = "#CCC591", label="Q11"];
+   i12 [fillcolor = "#CCC591", label="Q23"];
+   i13 [fillcolor = "#CCC591", label="Q35"];
+   i14 [fillcolor = "#CCC591", label="Q45"];
+   i15 [fillcolor = "#CCC591", label="Q51"];
+   i16 [fillcolor = "#CCC591", label="Q102"];
+   i17 [fillcolor = "#CCC591", label="Q223"];
+   i18 [fillcolor = "#CCC591", label="Q511"];
+   i19 [fillcolor = "#CCC591", label="Q788"];
+   i20 [fillcolor = "#CCC591", label="Q1020"];
+   }

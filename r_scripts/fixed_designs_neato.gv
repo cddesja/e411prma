@@ -1,0 +1,21 @@
+digraph neato {
+      size="7.5,10"
+   overlap = "false";
+   node [shape = circle, color = "#29211F", style = "filled", fontsize = 10, fixedsize = "true"];
+   r1 [fontname = "Futura", fillcolor = "#C27D38", label="Rater 1"];
+   r2 [fontname = "Futura", fillcolor = "#C27D38", label="Rater 2"];
+   r1 -> {i1 i2 i3 i4 i5 i6 i7 i8 i9 i10}
+   r2 -> {i1 i2 i3 i4 i5 i6 i7 i8 i9 i10}
+   
+   
+   i1 [fontname = "Futura", fillcolor = "#798E87", label="Q5"];
+   i2 [fontname = "Futura", fillcolor = "#798E87", label="Q6"];
+   i3 [fontname = "Futura", fillcolor = "#798E87", label="Q7"];
+   i4 [fontname = "Futura", fillcolor = "#798E87", label="Q8"];
+   i5 [fontname = "Futura", fillcolor = "#798E87", label="Q9"];
+   i6 [fontname = "Futura", fillcolor = "#798E87", label="Q10"];
+   i7 [fontname = "Futura", fillcolor = "#798E87", label="Q1"];
+   i8 [fontname = "Futura", fillcolor = "#798E87", label="Q2"];
+   i9 [fontname = "Futura", fillcolor = "#798E87", label="Q3"];
+   i10 [fontname = "Futura", fillcolor = "#798E87", label="Q4"];
+   }

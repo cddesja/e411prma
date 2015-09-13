@@ -1,0 +1,18 @@
+digraph dot {
+      overlap = "false";
+      node [shape = circle, color = "#29211F", style = "filled", fontsize = 10, fixedsize = "true", fontname = "Futura"];
+      r1 [fillcolor = "#C27D38", label="Rater 1"];
+      r2 [fillcolor = "#C27D38", label="Rater 2"];
+      r1 -> {i1 i2 i3 i4 i5 }
+      r2 -> {i6 i7 i8 i9 i10}
+      i1 [fillcolor = "#798E87",label="Item 1"];
+      i2 [fillcolor = "#798E87",label="Item 2"];
+      i3 [fillcolor = "#798E87",label="Item 3"];
+      i4 [fillcolor = "#798E87",label="Item 4"];
+      i5 [fillcolor = "#798E87",label="Item 5"];
+      i6 [fillcolor = "#798E87",label="Item 6"];
+      i7 [fillcolor = "#798E87",label="Item 7"];
+      i8 [fillcolor = "#798E87",label="Item 8"];
+      i9 [fillcolor = "#798E87",label="Item 9"];
+      i10 [fillcolor = "#798E87",label="Item 10"];
+      }

@@ -1,6 +1,6 @@
 ---
 title: 'R Assignment #1'
-author: "Your Name"
+author: "Answer Key"
 date: "3 September 2015"
 output: html_document
 ---
@@ -12,22 +12,22 @@ knitr::opts_chunk$set(echo = TRUE)
 ### Question 1 - Describe the cars dataset
 
 #### Question 1a: How many variables are in the cars dataset? (1 pt)
-There are two variables in the cars dataset
+There are two variables in the cars dataset.
 ```{r}
 names(cars)
 ```
 
 #### Question 1b: What are the names of the variables in the cars dataset and what do they mean? (2 pts)
 
-The names of the variables in the cars data set are `speed` and `dist`. Speed is the speed in miles per hour and dist is the stopping distance in feet. This information was obtained from the help page
+The names of the variables in the cars data set are `speed` and `dist`. Speed is the speed in miles per hour (mpg) and dist is the stopping distance in feet (ft). This information was obtained from the help page by running `?cars` or using the following code: 
 
 ```{r}
-?cars
 names(cars)
 ```
 
 #### Question 1c: How many observations are there in the cars dataset? (1 pt)
 There are 50 observations in the cars dataset.
+
 ```{r}
 nrow(cars)
 ```
@@ -35,7 +35,9 @@ nrow(cars)
 #### Question 1d: Examine the descriptive statistics for the cars dataset. Please report the median and the mean for the variables and comment on what this implies about skewness. (3 pts)
 The mean and median for `speed` are 15.4 and 15.0, respectively. Given that the mean is slightly above the median you might expect that the data are slightly postively (or right) skewed. However, the difference is not very large, so the data may be roughly symmetric.
 
-The mean and median for `dist` are 42.98 and 36.00, respectively. Given that mean is a bit above the median, you might expect that the data are positively (or right) skewed. You would expect dist to be more postive (or right) skewed than speed.
+The mean and median for `dist` are 42.98 and 36.00, respectively. Given that the mean is a bit above the median, you might expect that the data are positively (or right) skewed. You would expect dist to be more postive (or right) skewed than speed.
+
+However, in order to fully assess skewness the data need to be plotted. But this quesiton is asking just about the relationship between the mean and the median. 
 
 ```{r}
 summary(cars)
@@ -47,11 +49,11 @@ These are ratio variables as they have a true zero.
 
 #### Question 1f: What kind of correlation coefficient would you calculate? Why? (2 pts)
 
-I would calculate the Pearson correlation coefficient because the variables are ratio, continuous variables. If they were categorical, I would have considered Spearman's rank. However, if they are not bivariate normal and contain many outliers, then a Spearman's rank might be more appropriate. A Pearson correlation requires the association to be linear, Spearman's rank doens't. So if there are values that differ substantially from this linear relationship than Spearman's rank is more appropirate.
+I would calculate the Pearson correlation coefficient because the variables are ratio, continuous variables. If they were categorical, I would have considered Spearman's rank. However, if they are not bivariate normal and contain many outliers, then a Spearman's rank might also be more appropriate. A Pearson correlation requires the association to be linear, Spearman's rank doens't. So if there are values that differ substantially from this linear relationship than Spearman's rank is more appropirate.
 
 #### Question 1g: Calculate the appropriate correlation coefficient and interpret it. (2 pts)
 
-The correlation coefficient is 0.8068949. This means there is a __strong__ and __positive__ correlation between speed and dist. This implies that as we increase driving speed, we increase the stopping distance.
+The correlation coefficient is 0.8068949. This means that there is a __strong__ and __positive__ correlation between speed and dist. This implies that as we increase driving speed, we increase the stopping distance.
 
 ```{r}
 cor(cars)
@@ -62,14 +64,14 @@ cor(cars)
 #### Question 2a: Plot one of the variables (i.e. create a marginal plot) and describe the distribution. For the description of the distribution think about whether it looks symmetric, skewed, kurtotic, or normal. (5 pts)
 
 ##### For `speed`
-The distributiion looks roughly symmetric. There doesn't appear to be much kurtosis and, in general, the distribution looks roughly normal. The plot does indicates that there might be some slightly negative (or left) skew.
+The distribution looks to roughly symmetric. There doesn't appear to be much kurtosis. There is a slight peak but nothing too abnormal. I would say that, in general, the distribution is roughly normal. The plot does indicates that there is some slight negative (or left) skewness but this is a trival amount and this is also against what was observed from the median/mean relationship alone.
 
 ```{r}
 hist(cars$speed)
 ```
 
 ##### For `dist`
-The distribution is definitely positively (or right)-skewed. It does not look normally distributed and it doesn't look kurtotic (i.e. no kurtosis) either. It is not symmetric.
+The distribution is definitely positively (or right)-skewed. It does not look normally distributed and is not symmetric. Given that the distribution is positively skewed, kurtosis does not make much sense as the distibution is clearly not normal.
 
 ```{r}
 hist(cars$dist)
@@ -89,7 +91,7 @@ plot(dist ~ speed, data = cars)
 
 #### Question 3a: Run a simple linear regression model. State which variable you used as the response and which you used as the predictor and explain why you made this decision? (2 pt)
 
-Breaking distance is the reponse variable and speed of the car is the predictor. It doesn't make sense to try and predict a car's speed given it's breaking distance but it does make sense the other way around. 
+Breaking distance shoud be the reponse variable and the speed of the car is the predictor. If this was in an experimental setting, you could randomly assign cars to different speeds, however, you couldn't randomly manipulate breaking distance.
 
 ```{r}
 mod1 <- lm(dist ~ speed, cars)
@@ -98,7 +100,7 @@ mod1 <- lm(dist ~ speed, cars)
 
 #### Question 3b: What is the p-value for the predictor (i.e. the slope term)? Please provide an interpretation of this p-value. Did you reject or fail to reject your null hypothesis? (3 pts)
 
-The p-value is 1.49e-12 (or less than .001). The p-value is the probability of obtaining results as extreme or more extreme than those observed given that the null hypothesis is true. So in this case, it is extremely unlikely that the slope of the predictor is 0 given our results. We reject the null hypothesis.
+The p-value is 1.49e-12 (or less than .001). Interpretation: The p-value is the probability of obtaining results as extreme or more extreme than those observed given that the null hypothesis is true. Our null hypothesis is the slope of speed is equal to zero. So in this case, it is extremely unlikely that the slope of the predictor is zero given our results and we reject the null hypothesis.
 
 ```{r}
 summary(mod1)
@@ -114,11 +116,11 @@ The slope is 3.9324. This means that for a one mile per hour increase, the expec
 confint(mod1)
 ```
 
-Yes, the 95% confidence interval for the slope (3.096964, 4.767853) agrees with the findings from the hypothesis test. The reason is that the hypothesis is testing whether 0 is a likely value for the slope. We reject the null hypotheiss and that implies that 0 is an extremely unlikely value based on our p-value. Our 95% confidence interval tells us a range of plausible values for the true slope. 0 is not in the range of plausible values because it isn't between 3.096964 and 4.767853. Therefore, this agrees with the hypothesis test.  
+Yes, the 95% confidence interval for the slope (3.096964, 4.767853) agrees with the findings from the hypothesis test. The reason is that the hypothesis is testing whether 0 is a likely value for the slope. We rejected the null hypothesis and that implies that 0 is an extremely unlikely value based on our p-value. Our 95% confidence interval tells us a range of plausible values for the true slope. 0 is not in the range of plausible values because it isn't between 3.096964 and 4.767853. Therefore, this agrees with the hypothesis test. This makes sense because if the p-value is less than 0.05, the value tested in a null hypothesis will never be in a 95% confidence interval. Also, please note, that your estimate of the slope or any parameter, will always be in a confidence interval.  
 
 #### Question 3e: Plot your residuals; describe your residual plot; and comment on whether your model is appropriate or not based on this plot. (3 pts) 
 
-In general, the residual plot looks OK. However, there does appear to be increase in variability as you move from the left to the right. In other words, it looks like the residuals are fanning out. This could just be a function of the small number of observations when the speed of the car is slow, so this residual plot is probably OK and that would mean that our model is OK. However, it might be worth it to consider some transformations of our response variable and see what effect this might have on our findings. 
+In general, the residual plot looks OK. There does appear to be an increase in variability as you move from the left to the right. In other words, it looks like the residuals are fanning out (or making a christmas tree on it's side). This could just be a function of the small number of observations when the speed of the car is slow, so this residual plot is probably OK and that would mean that our model is OK. However, it might be worth it to consider some transformations of our response variable and see what effect this might have on our findings (i.e. our hypothesis testing) or weighted least squares.  
 
 
 ```{r}

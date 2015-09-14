@@ -546,7 +546,7 @@ If Anna scored a 7.5, what range of values can we be 95\% confident that her tru
 
 \begin{frame}
 \frametitle{Standard Error of the difference between two scores}
-$$\sigma_D = \sqrt{\sigma_{SEM_1} + \sigma_{SEM_2}} $$
+$$\sigma_D = \sqrt{\sigma_{SEM_1}^2 + \sigma_{SEM_2}^2} $$
 
 $$\sigma_D = \sigma\sqrt{2 - r_1 - r_2} $$
 

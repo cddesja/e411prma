@@ -1,0 +1,219 @@
+\documentclass{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage{geometry}
+\usepackage{enumerate}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+
+
+\begin{center}
+{\large \textbf{R Computer Lab \#2}}
+\end{center}
+
+For the second R computer lab, you will be running an item response theory analysis. Again, you are allowed to work in groups on this assignment, but everyone should turn in their own assignment and everyone needs to write the name(s) of the other students you worked with on the assignment. \textbf{Please copy and paste all your output to your final lab report.}  
+
+\vspace{.2cm}
+You need the following documents from the course website for this assignment:
+\begin{enumerate}
+\item R Computer Lab 2 - The file is called r\_computer\_lab2.pdf (this document!)
+\end{enumerate}
+
+\vspace{.2cm}
+You can run the R code in this assignment in two ways.
+
+\begin{itemize}
+  \item Copy and paste the R code from this document directly into the RStudio Console
+  \item Run the R script that is on the class website (\textit{r\_computer\_lab2.R})
+\end{itemize}
+
+The first thing you need to do is to install the \textit{irtoys} package. To do this run the following code (either from the script or by copying/pasting it into the RStudio console):
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{install.packages}\hlstd{(}\hlstr{"irtoys"}\hlstd{)}
+\hlkwd{library}\hlstd{(}\hlstr{"irtoys"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+\textbf{OPTIONAL}: You might also be interested in knowing what directory RStudio is using and when you save plots where they will be saved. You can run the following command in the RStudio console and it will tell you where you are.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{getwd}\hlstd{()}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+For questions 1 and 2 you will interpret output from a Rasch model. The following code is all the code you will need to run the Rasch models. However, you might need to make minor edits to the code (similar to lab 1). The code will: (a) print out estimated parameters, (b) standard errors, (c) plot item response functions, (d) print ability estimates, (e) plot item information functions, and finally (f) plot the test information function. 
+
+\textbf{Please read all the code especially the lines starting with \# to understand what is going on and post all questions about this assignment on the class forum!}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# This actually runs the model}
+\hlstd{rasch_model} \hlkwb{<-} \hlkwd{est}\hlstd{(Scored,} \hlkwc{model}\hlstd{=}\hlstr{"1PL"}\hlstd{,} \hlkwc{engine}\hlstd{=}\hlstr{"ltm"}\hlstd{,} \hlkwc{rasch} \hlstd{=} \hlnum{TRUE}\hlstd{)}
+
+\hlcom{#}
+\hlcom{# Estimated Parameters}
+\hlcom{#}
+\hlstd{est_params} \hlkwb{<-} \hlstd{rasch_model}\hlopt{$}\hlstd{est}
+\hlkwd{colnames}\hlstd{(est_params)} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Discrimination"}\hlstd{,} \hlstr{"Difficulty"}\hlstd{,} \hlstr{"Guessing"}\hlstd{)}
+\hlkwd{rownames}\hlstd{(est_params)} \hlkwb{<-} \hlkwd{paste}\hlstd{(}\hlstr{"Item"}\hlstd{,} \hlnum{1}\hlopt{:}\hlnum{18}\hlstd{)}
+\hlstd{est_params}
+
+\hlcom{#}
+\hlcom{# Standard Errors}
+\hlcom{# }
+\hlstd{est_se} \hlkwb{<-} \hlstd{rasch_model}\hlopt{$}\hlstd{se}
+\hlkwd{colnames}\hlstd{(est_se)} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Discrimination SE"}\hlstd{,} \hlstr{"Difficulty SE"}\hlstd{,} \hlstr{"Guessing SE"}\hlstd{)}
+\hlkwd{rownames}\hlstd{(est_se)} \hlkwb{<-} \hlkwd{paste}\hlstd{(}\hlstr{"Item"}\hlstd{,} \hlnum{1}\hlopt{:}\hlnum{18}\hlstd{)}
+\hlstd{est_se}
+
+\hlcom{#}
+\hlcom{# Plot item response function for items 1, 3, 5}
+\hlcom{#}
+\hlkwd{plot}\hlstd{(}\hlkwd{irf}\hlstd{(est_params[}\hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,}\hlnum{3}\hlstd{,}\hlnum{5}\hlstd{),]),} \hlkwc{co} \hlstd{=} \hlnum{NA}\hlstd{)}
+\hlcom{# you can safely delete co = NA if you want the lines to all be black}
+
+\hlcom{#}
+\hlcom{# Estimated abilities}
+\hlcom{#}
+\hlstd{est_abl} \hlkwb{<-} \hlkwd{as.data.frame}\hlstd{(}\hlkwd{mlebme}\hlstd{(Scored,} \hlkwc{ip} \hlstd{= est_params))}
+\hlkwd{min}\hlstd{(est_abl}\hlopt{$}\hlstd{est)}  \hlcom{# Prints the minimum score}
+\hlkwd{max}\hlstd{(est_abl}\hlopt{$}\hlstd{est)}  \hlcom{# Prints the maximum scores}
+\hlkwd{which.min}\hlstd{(est_abl}\hlopt{$}\hlstd{est)}  \hlcom{# Prints out the person with the minimum score}
+\hlkwd{which.max}\hlstd{(est_abl}\hlopt{$}\hlstd{est)}  \hlcom{# Prints out the person with the maximum score}
+
+\hlcom{# To find out score for person 200}
+\hlstd{est_abl[}\hlnum{200}\hlstd{,]}
+
+\hlcom{#}
+\hlcom{# Plot Item Information Function for items 1, 3, 5}
+\hlcom{#}
+\hlkwd{plot}\hlstd{(}\hlkwd{iif}\hlstd{(est_params[}\hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,}\hlnum{3}\hlstd{,}\hlnum{5}\hlstd{),]),} \hlkwc{co} \hlstd{=} \hlnum{NA}\hlstd{)}
+
+
+\hlcom{#}
+\hlcom{# Plot Test Information Function}
+\hlcom{#}
+\hlkwd{plot}\hlstd{(}\hlkwd{tif}\hlstd{(est_params))}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+\section*{Question 1 - Item Response Functions and Person Estimates}
+  
+  \begin{enumerate}[(a)]
+      \item Which item was the easiest item and which item was the hardest? \textbf{(2 points)}
+      \item Provide a 95\% confidence interval for the easiest item and interpret it.  \textbf{(2 points)}
+      \item Provide a plot that contains both the easiest and the hardest item.  \textbf{(1 point)}
+      \item What would we expect the probability of a correct response would be for someone who had an ability score of 0 for these two items?  \textbf{(2 points)}
+      \item What was the score of the person who did the best on the test? What was the score of the person who did the worst on the test?  \textbf{(2 points)}
+      \item Provide a 95\% confidence interval for the estimated ability for the student who did the best on the test and interpret it.  \textbf{(2 points)}
+  \end{enumerate}
+  
+\vspace{1cm}
+\section*{Question 2 - Information}
+For this question, you will choose three items to investigate.
+  \begin{enumerate}[(a)]
+      \item Please state the three items you selected. \textbf{(1 point)}
+     \item Provide a plot that contains these three items' information functions. \textbf{(1 point)}
+      \item What is the same about these items' information functions? What is different? Hint: This can be a very short answer. \textbf{(2 point)}
+     \item Provide a plot of the test information function. \textbf{(1 point)}
+     \item Where is the majority of the information for this test located? \textbf{(1 point)}
+  \end{enumerate}
+
+Finally, you will need to run a 2-PL. 
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# This actually runs the model}
+\hlstd{twopl_model} \hlkwb{<-} \hlkwd{est}\hlstd{(Scored,} \hlkwc{model}\hlstd{=}\hlstr{"2PL"}\hlstd{,} \hlkwc{engine}\hlstd{=}\hlstr{"ltm"}\hlstd{)}
+
+\hlcom{#}
+\hlcom{# Estimated Parameters}
+\hlcom{#}
+\hlstd{twopl_params} \hlkwb{<-} \hlstd{twopl_model}\hlopt{$}\hlstd{est}
+\hlkwd{colnames}\hlstd{(twopl_params)} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Discrimination"}\hlstd{,} \hlstr{"Difficulty"}\hlstd{,} \hlstr{"Guessing"}\hlstd{)}
+\hlkwd{rownames}\hlstd{(twopl_params)} \hlkwb{<-} \hlkwd{paste}\hlstd{(}\hlstr{"Item"}\hlstd{,} \hlnum{1}\hlopt{:}\hlnum{18}\hlstd{)}
+\hlstd{twopl_params}
+
+\hlcom{#}
+\hlcom{# Estimated abilities}
+\hlcom{#}
+\hlstd{twopl_abl} \hlkwb{<-} \hlkwd{as.data.frame}\hlstd{(}\hlkwd{mlebme}\hlstd{(Scored,} \hlkwc{ip} \hlstd{= twopl_params))}
+
+\hlcom{# Correlation between the ability estimates}
+\hlkwd{cor}\hlstd{(twopl_abl}\hlopt{$}\hlstd{est,est_abl}\hlopt{$}\hlstd{est)}
+
+\hlcom{#}
+\hlcom{# Plot Item Information Function for items 1, 3, 5}
+\hlcom{#}
+\hlkwd{plot}\hlstd{(}\hlkwd{iif}\hlstd{(twopl_params[}\hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,}\hlnum{3}\hlstd{,}\hlnum{5}\hlstd{),]),} \hlkwc{co} \hlstd{=} \hlnum{NA}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+\section*{Question 3 - Comparing the 2-PL}
+\begin{enumerate}[(a)]
+     \item Which item had the highest discrimation? Which one had the lowest discrimination? \textbf{(2 point)}
+      \item Are the items that were the easiest and hardest in the Rasch model, also the easiest and hardest in the 2-PL? \textbf{(1 point)}
+      \item What is the correlation between the ability estimates on the Rasch model and the 2-PL? If your interest was solely on estimating person abilities, do you think you would draw the same conclusions from both models? Why? \textbf{(2 point)} 
+      \item Provide a plot of the item information function for the three items you selected in Question 2 but this time for the 2-PL model. \textbf{(1 point)}
+    \item For the 2-PL model, how do the item information functions for these items differ? How do the 2-PL item information functions from these items differ from their Rasch item information functions?  \textbf{(2 point)}
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,66 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\title{Practice Problems for the Midterm Exam}
+\begin{document}
+\maketitle
+
+\section*{Question 1}
+Given the following item response theory table,
+
+\begin{tabular}{lll}
+\hline
+Parameter & Estimate & Standard Error \\
+\hline 
+a & 1.7 & 0.90 \\
+b & 2  & 0.55 \\
+c & .2 & 0.05 \\
+\hline
+\end{tabular}
+
+\begin{enumerate}
+\item Interpret the estimated parameters
+\item Provide 95\% confidence intervals for these parameters
+\item Interpret the 95\% confidence intervals
+\item What decision would you make about the following hypotheses, $H_0$: b = 1.5 and $H_A$: b $\neq$ 1.5? In other words, would you reject or not reject $H_0$, why? 
+\item Be sure to understand how to interpret an item response function and an item information function!
+\end{enumerate}
+
+\section*{Question 2}
+
+You are performing a classical test theory analysis and the total observed variance was 150 and the error variance was 60. What is your estimate of reliability? Provide an interpretation.
+
+\section*{Question 3}
+
+\begin{enumerate}
+\item A test that is 100 items is split into two equal halves. The correlation between the two halves is 0.6. Provide an estimate of reliability.
+\item How long would the test need to be for the estimate of reliability to be 0.9?
+\item If a test is 50 items long, the sum of the product of the proportion answering an item correctly and the proportion answering an item incorrectly is 3.25 and the total variance of the test scores is 6.00. What is an estimate of reliability?
+\item Finally, a test is 70 items long and the sum of the item variances on this test with ordinal items is 4.59 and the total variance is 8.3. What is the an estimate of reliability?
+\end{enumerate}
+
+\section*{Question 4}
+A student takes an IQ test and gets an estimate of 107. If the variance of the test scores was 225 and reliability was estimated as 0.8.
+
+\begin{enumerate}
+\item What would you estimate their true score to be?
+\item What is the standard error of measurement?
+\item Construct a 95\% confidence interval for this student and interpret it.
+\item How possible is it that this student's true score could be 120?
+\item If another student takes the same test and gets a 125, did this student do significantly better than the first? Why or why not?
+\item What if the student took a different test and got a 125 but the standard error of measurement of that test was 2.1. Did this student do better or not?
+\end{enumerate}
+
+
+\section*{Question 5}
+For generalizability theory, make sure you understand the differences between the different reliabilities and when you would use one over the other. Make sure you know how to calculate these reliability estimates (if you were given universe variance, relative-score variance, and absolute-score variance) and make sure you can look at a table with the estimated variances (see the table in the lecture notes 12, slide 14) and understand which facet is likely to have the largest effect on reliability.
+
+
+\end{document}  

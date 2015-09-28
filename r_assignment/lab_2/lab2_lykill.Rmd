@@ -1,0 +1,109 @@
+---
+title: 'R Assignment #2'
+author: "Christopher David Desjardins"
+date: "March 7, 2015"
+output: html_document
+---
+
+```{r, echo = F, results = 'hide', warning = FALSE, message = FALSE}
+## ------------------------------------------------------------------------
+library("irtoys")
+# This actually runs the model
+rasch_model <- est(Scored, model="1PL", engine="ltm", rasch = TRUE)
+#
+# Estimated Parameters
+#
+est_params <- rasch_model$est
+colnames(est_params) <- c("Discrimination", "Difficulty", "Guessing")
+rownames(est_params) <- paste("Item", 1:18)
+est_se <- rasch_model$se
+
+colnames(est_se) <- c("Discrimination SE", "Difficulty SE", "Guessing SE")
+rownames(est_se) <- paste("Item", 1:18)
+```
+
+### Question 1
+
+#### (a) - 2 points
+The easiest item was number `r which.min(est_params[, 2])` with a difficulty of `r est_params[5,2]` and the hardest was number number `r which.max(est_params[, 2])` with a difficulty of `r est_params[10,2]`.
+
+#### (b) - 2 points
+The 95% confidence interval was (`r est_params[5, 2] + c(-1, 1) * est_se[5, 2] * 1.96`). Interpretation: We are 95% confident that the true item difficulty lies between these values for item number 5.
+
+#### (c) - 1 point
+
+```{r, echo = FALSE}
+plot(irf(est_params[c(5, 10),]), co = NA)  
+rasch <- function(theta, b){
+  return(exp(theta - b) / (1 + exp(theta - b)))
+}
+est_abl <- as.data.frame(mlebme(Scored, ip = est_params))
+```
+
+#### (d) - 2 points
+The probabiliy of someone with an ability estimate of 0 getting the easiest item (the black line) correct is `r rasch(0, est_params[5,2])` and the hardest item correct (the red line) was `r rasch(0, est_params[10,2])`
+
+#### (e) - 2 points
+The person who did the worst was `r which.min(est_abl$est)` and there score was `r min(est_abl$est)` and the person who did the best was `r which.max(est_abl$est)` and there score `r max(est_abl$est)`.
+
+#### (f) - 2 points
+The 95% confidence interval was (`r est_abl[which.max(est_abl$est),1] + c(-1, 1) * est_abl[which.max(est_abl$est),2] * 1.96`). Interpretation: We are 95% confident that the true score for person #49 lies between these values.
+
+### Question 2
+
+#### (a) - 1 point
+Different for every student. For the remained of the answer key, we'll assume you chose items 1, 3, and 5.
+
+#### (b) - 1 point 
+```{r}
+plot(iif(est_params[c(1,3,5),]), co = NA)  
+```
+
+#### (c) - 2 points 
+The items have the same shape and the same maximum amount of information. They differ by where the item is located. 
+
+#### (d) - 1 point 
+```{r, echo = FALSE}
+plot(tif(est_params))
+```
+
+#### (e) - 1 point
+```{r, echo = FALSE}
+ti <- tif(est_params)
+```
+The maximum amount of information is located around `r ti$x[which.max(ti$f)]`.
+
+### Question 3
+```{r, echo = FALSE}
+
+## ------------------------------------------------------------------------
+# This actually runs the model
+twopl_model <- est(Scored, model="2PL", engine="ltm")
+
+#
+# Estimated Parameters
+#
+twopl_params <- twopl_model$est
+colnames(twopl_params) <- c("Discrimination", "Difficulty", "Guessing")
+rownames(twopl_params) <- paste("Item", 1:18)
+twopl_abl <- as.data.frame(mlebme(Scored, ip = twopl_params))
+
+```
+
+#### (a) - 2 points
+The  item with the lowest discrimination as number `r which.min(twopl_params[, 1])` with a discrimation of `r twopl_params[which.min(twopl_params[, 1]), 1]` and the item with the highest discrimination was number `r which.max(twopl_params[, 1])` with a discrimination of `r twopl_params[which.max(twopl_params[, 1]), 1]`.
+
+#### (b) - 1 point
+The easiest item in the 2PL was `r which.min(twopl_params[, 2])` with a difficulty of `r twopl_params[which.min(twopl_params[,2]), 2]` and the hardest item was number `r which.max(twopl_params[, 2])` with a difficulty of `r twopl_params[which.max(twopl_params[, 2]), 2]`. Item 5 was the easiest in the Rasch and now item 1 is the easiest. 10 item was the most difficult in both.
+
+#### (c) - 2 points
+The correlation was `r cor(twopl_abl$est,est_abl$est)`. Yes, if interest in solely in estimating scores, the model give essential the same ranking and essentially the same information about scores. 
+
+
+#### (d) - 1 point
+```{r, echo = FALSE}
+plot(iif(twopl_params[c(1,3,5),]), co = NA) 
+```
+
+#### (e) - 2 points
+Unlike the Rasch model, the shape and location of the information functions are completely different. Some functions look more like bell-curves, while others are more stretched out. This is because of the discrimination parameter. Comparing within the 2PL we see they have different shapes and centering and compared to the Rasch models, have different centers and shapes.

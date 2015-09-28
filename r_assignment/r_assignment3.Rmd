@@ -1,0 +1,127 @@
+---
+title: "Untitled"
+author: "Your Name"
+date: "September 28, 2015"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+# Reads in the Harry Potter data set
+hp <- read.csv("http://cddesja.github.io/classes/e411prma2015-3/data/hp.csv", header = T)
+```
+
+# R Assignment 3
+
+For this assignment, you'll be using item response theory. As with before, we'll use an example to create all the `R` code you'll need for this assignment. The data set used in this example is called `Scored` from the `irtoys` package and the data set you will use for the actual assignment is `hp`. __Please make sure you are online when you are doing this assignment otherwise you will get an error that says data set hp is not found__!
+
+For this assignment, you need to install the `irtoys` package. To do this, run the following command once in RStudio:
+
+install.packages("irtoys")
+
+If you are on a Windows machine, please launch RStudio with Administrator privileges by right-clicking the RStudio icon, clicking "run as Administator" and then run the following commanded in RStudio:
+
+install.packages("irtoys")
+
+```{r, message =  FALSE, echo = FALSE}
+library("irtoys")
+```
+
+__You will get an error if you haven't installed irtoys yet. So please make sure you do this before you proceed any further.__
+
+```{r, eval = FALSE, echo = FALSE}
+
+# Load the irtoys library
+library("irtoys")
+
+# Please note that if you run "Knit to HTML" you do not need to run that command below.
+# I have already automatically included that in a Chunk for you.
+# But if you are run R interactively (i.e. running each line of code prior to running the Knit command)
+# Then you do need to run the library("irtoys") command
+
+# Make sure to changed Scored for hp below !
+
+#
+# For Questions 1 - 5
+#
+
+# This runs the Rasch model.
+rasch_model <- est(Scored, model="1PL", engine="ltm", rasch = TRUE)
+
+#
+# Estimated Parameters
+rasch_params <- rasch_model$est
+colnames(rasch_params) <- c("Discrimination", "Difficulty", "Guessing")
+rownames(rasch_params) <- paste("Item", 1:ncol(Scored))
+rasch_params
+
+#
+# Standard Errors
+# 
+est_se <- rasch_model$se
+colnames(est_se) <- c("Discrimination SE", "Difficulty SE", "Guessing SE")
+rownames(est_se) <- paste("Item", 1:ncol(Scored))
+est_se
+
+#
+# Plot item response function for items 1, 3, 5
+#
+plot(irf(rasch_params[c(1,3,5),]), co = NA)  
+# you can safely delete co = NA if you want the lines to all be black
+
+#
+# Estimated abilities
+#
+rasch_abl <- as.data.frame(mlebme(Scored, ip = rasch_params))
+min(rasch_abl$est)  # Prints the minimum score
+max(rasch_abl$est)  # Prints the maximum scores
+which.min(rasch_abl$est)  # Prints out the person with the minimum score
+which.max(rasch_abl$est)  # Prints out the person id with the maximum score
+
+#
+# For Questions 6 - 7
+#
+
+# This code runs the 2-PL model
+twopl <- est(Scored, model="2PL", engine="ltm")
+twopl_params <- twopl$est
+colnames(twopl_params) <- c("Discrimination", "Difficulty", "Guessing")
+rownames(twopl_params) <- paste("Item", 1:ncol(Scored))
+twopl_params
+
+# Plot the IRFs for the 2-PL model.
+plot(irf(twopl_params[c(1,3,5),]), co = NA)  
+
+#
+# Estimated abilities
+#
+twopl_abl <- as.data.frame(mlebme(Scored, ip = twopl_params))
+
+# Correlation between the ability estimates
+cor(twopl_abl$est,rasch_abl$est)
+```
+
+Please replace `Scored` with `hp` to answer the following questions.
+
+## Questions
+
+### Questions (1 - 4) are asking about the Rasch Model
+
+#### Question 1. Which item was the easiest item and which item was the hardest? Which item was the second hardest? Do the results surprise you? Why? (3 pt) 
+
+#### Question 2. What would we expect the probability of a correct response would be for someone who had an ability score of 0 for the easiest and the second hardest items? Hint: It might be useful to create an item reponse function plot to answer this question.  (2 pts)
+
+#### Question 3.  What was the range in estimated abilities scores on the HP pretest?  (2 pts)
+
+#### Question 4. Provide a 95% confidence interval for the estimated ability for the student who did the best on the test and interpret it. (2 pts)
+
+### Questions 5 - 7 are asking you about the 2-PL 
+
+#### Question 5. Which items would you decide to rewrite or remove from the pretest based on the 2-PL? Why would you rewrite or remove them? (2 pts)
+
+#### Question 6. Provide a plot of items 7 and 8. Describe the differences in these two items' item response functions (3 pt).
+
+#### Question 7  What is the correlation between the ability estimates on the Rasch model and the 2-PL? If your interest was solely on estimating person abilities, do you think you would draw the same conclusions from both models? Why? (2 pts)

@@ -1,0 +1,158 @@
+\documentclass{article}
+\usepackage{geometry}
+\usepackage{enumerate}
+\begin{document}
+
+<<setup, include=FALSE, cache=FALSE>>=
+library(knitr)
+# set global chunks
+opts_chunk$set(eval = FALSE)
+@
+
+\begin{center}
+{\large \textbf{R Computer Lab \#2}}
+\end{center}
+
+For the second R computer lab, you will be running an item response theory analysis. Again, you are allowed to work in groups on this assignment, but everyone should turn in their own assignment and everyone needs to write the name(s) of the other students you worked with on the assignment. \textbf{Please copy and paste all your output to your final lab report.}  
+
+\vspace{.2cm}
+You need the following documents from the course website for this assignment:
+\begin{enumerate}
+\item R Computer Lab 2 - The file is called r\_computer\_lab2.pdf (this document!)
+\end{enumerate}
+
+\vspace{.2cm}
+You can run the R code in this assignment in two ways.
+
+\begin{itemize}
+  \item Copy and paste the R code from this document directly into the RStudio Console
+  \item Run the R script that is on the class website (\textit{r\_computer\_lab2.R})
+\end{itemize}
+
+The first thing you need to do is to install the \textit{irtoys} package. To do this run the following code (either from the script or by copying/pasting it into the RStudio console):
+<<>>=
+install.packages("irtoys")
+library("irtoys")
+@
+
+\textbf{OPTIONAL}: You might also be interested in knowing what directory RStudio is using and when you save plots where they will be saved. You can run the following command in the RStudio console and it will tell you where you are.
+
+<<>>=
+getwd()
+@
+
+For questions 1 and 2 you will interpret output from a Rasch model. The following code is all the code you will need to run the Rasch models. However, you might need to make minor edits to the code (similar to lab 1). The code will: (a) print out estimated parameters, (b) standard errors, (c) plot item response functions, (d) print ability estimates, (e) plot item information functions, and finally (f) plot the test information function. 
+
+\textbf{Please read all the code especially the lines starting with \# to understand what is going on and post all questions about this assignment on the class forum!}
+
+<<>>=
+# This actually runs the model
+rasch_model <- est(Scored, model="1PL", engine="ltm", rasch = TRUE)
+
+#
+# Estimated Parameters
+#
+est_params <- rasch_model$est
+colnames(est_params) <- c("Discrimination", "Difficulty", "Guessing")
+rownames(est_params) <- paste("Item", 1:18)
+est_params
+
+#
+# Standard Errors
+# 
+est_se <- rasch_model$se
+colnames(est_se) <- c("Discrimination SE", "Difficulty SE", "Guessing SE")
+rownames(est_se) <- paste("Item", 1:18)
+est_se
+
+#
+# Plot item response function for items 1, 3, 5
+#
+plot(irf(est_params[c(1,3,5),]), co = NA)  
+# you can safely delete co = NA if you want the lines to all be black
+
+#
+# Estimated abilities
+#
+est_abl <- as.data.frame(mlebme(Scored, ip = est_params))
+min(est_abl$est)  # Prints the minimum score
+max(est_abl$est)  # Prints the maximum scores
+which.min(est_abl$est)  # Prints out the person with the minimum score
+which.max(est_abl$est)  # Prints out the person id with the maximum score
+
+# To find out score for person with id 200
+est_abl[200,]
+
+#
+# Plot Item Information Function for items 1, 3, 5
+#
+plot(iif(est_params[c(1,3,5),]), co = NA)  
+
+
+#
+# Plot Test Information Function
+#
+plot(tif(est_params))
+@ 
+
+\section*{Question 1 - Item Response Functions and Person Estimates}
+  
+  \begin{enumerate}[(a)]
+      \item Which item was the easiest item and which item was the hardest? \textbf{(2 points)}
+      \item Provide a 95\% confidence interval for the easiest item and interpret it.  \textbf{(2 points)}
+      \item Provide a plot that contains both the easiest and the hardest item.  \textbf{(1 point)}
+      \item What would we expect the probability of a correct response would be for someone who had an ability score of 0 for these two items?  \textbf{(2 points)}
+      \item What was the score of the person who did the best on the test? What was the score of the person who did the worst on the test?  \textbf{(2 points)}
+      \item Provide a 95\% confidence interval for the estimated ability for the student who did the best on the test and interpret it.  \textbf{(2 points)}
+  \end{enumerate}
+  
+\vspace{1cm}
+\section*{Question 2 - Information}
+For this question, you will choose three items to investigate.
+  \begin{enumerate}[(a)]
+      \item Please state the three items you selected. \textbf{(1 point)}
+     \item Provide a plot that contains these three items' information functions. \textbf{(1 point)}
+      \item What is the same about these items' information functions? What is different? Hint: This can be a very short answer. \textbf{(2 point)}
+     \item Provide a plot of the test information function. \textbf{(1 point)}
+     \item Where is the majority of the information for this test located? \textbf{(1 point)}
+  \end{enumerate}
+
+Finally, you will need to run a 2-PL. 
+
+<<>>=
+# This actually runs the model
+twopl_model <- est(Scored, model="2PL", engine="ltm")
+
+#
+# Estimated Parameters
+#
+twopl_params <- twopl_model$est
+colnames(twopl_params) <- c("Discrimination", "Difficulty", "Guessing")
+rownames(twopl_params) <- paste("Item", 1:18)
+twopl_params
+
+#
+# Estimated abilities
+#
+twopl_abl <- as.data.frame(mlebme(Scored, ip = twopl_params))
+
+# Correlation between the ability estimates
+cor(twopl_abl$est,est_abl$est)
+
+#
+# Plot Item Information Function for items 1, 3, 5
+#
+plot(iif(twopl_params[c(1,3,5),]), co = NA) 
+ 
+@
+
+\section*{Question 3 - Comparing the 2-PL}
+\begin{enumerate}[(a)]
+     \item Which item had the highest discrimation? Which one had the lowest discrimination? \textbf{(2 point)}
+      \item Are the items that were the easiest and hardest in the Rasch model, also the easiest and hardest in the 2-PL? \textbf{(1 point)}
+      \item What is the correlation between the ability estimates on the Rasch model and the 2-PL? If your interest was solely on estimating person abilities, do you think you would draw the same conclusions from both models? Why? \textbf{(2 point)} 
+      \item Provide a plot of the item information function for the three items you selected in Question 2 but this time for the 2-PL model. \textbf{(1 point)}
+    \item For the 2-PL model, how do the item information functions for these items differ? How do the 2-PL item information functions from these items differ from their Rasch item information functions?  \textbf{(2 point)}
+\end{enumerate}
+
+\end{document}

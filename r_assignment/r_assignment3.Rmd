@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r, echo = F}
 # Reads in the Harry Potter data set
-hp <- read.csv("http://cddesja.github.io/classes/e411prma2015-3/data/hp.csv", header = T)
+hp <- read.csv("http://cddesja.github.io/classes/e411prma2015-3/data/hp.csv", header = T)[,-7]
 ```
 
 # R Assignment 3
@@ -76,6 +76,14 @@ plot(irf(rasch_params[c(1,3,5),]), co = NA)
 # Estimated abilities
 #
 rasch_abl <- as.data.frame(mlebme(Scored, ip = rasch_params))
+
+# This prints out the ability estimates
+# est - is the estimated ability
+# sem - is the standard error of measurement
+# n - is the number of items that each person responded to
+rasch_abl
+
+
 min(rasch_abl$est)  # Prints the minimum score
 max(rasch_abl$est)  # Prints the maximum scores
 which.min(rasch_abl$est)  # Prints out the person with the minimum score
@@ -122,6 +130,6 @@ Please replace `Scored` with `hp` to answer the following questions.
 
 #### Question 5. Which items would you decide to rewrite or remove from the pretest based on the 2-PL? Why would you rewrite or remove them? (2 pts)
 
-#### Question 6. Provide a plot of items 7 and 8. Describe the differences in these two items' item response functions (3 pt).
+#### Question 6. Provide a plot of items 8 and 9. Describe the differences in these two items' item response functions (3 pt).
 
 #### Question 7  What is the correlation between the ability estimates on the Rasch model and the 2-PL? If your interest was solely on estimating person abilities, do you think you would draw the same conclusions from both models? Why? (2 pts)
